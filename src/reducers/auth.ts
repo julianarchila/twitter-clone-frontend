@@ -4,7 +4,8 @@ interface AuthState {
   isAuthenticated: boolean;
   token?: string;
   refreshToken?: string;
-  user?: object;
+  user?: object | string;
+  isLoading: boolean;
 }
 interface Action {
   type: authActionTypes;
@@ -13,9 +14,10 @@ interface Action {
 
 const initialState: AuthState = {
   isAuthenticated: false,
+  isLoading: false,
 };
 
-const authReducer = (state = initialState, action: Action) => {
+const authReducer = (state = initialState, action: Action): AuthState => {
   const { type, payload } = action;
   switch (type) {
     case "login":

@@ -10,7 +10,7 @@ const LoginSignupPage: React.FC<Props> = (props) => {
   return (
     <div className="auth">
       <h1>Hi there</h1>
-      {parameter == "login" ? <LoginForm /> : <SignupForm />}
+      {parameter === "login" ? <LoginForm /> : <SignupForm />}
     </div>
   );
 };
