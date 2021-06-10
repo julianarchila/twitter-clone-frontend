@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
-import { useSelector } from "react-redux";
+import { useAppDispatch } from "../utilities/typedReduxHooks";
+import { login } from "../actions/authActions";
 
 const formDataDefault = {
   email: "",
@@ -8,8 +9,7 @@ const formDataDefault = {
 
 function LoginForm() {
   const [formData, setFormData] = useState(formDataDefault);
-  const state = useSelector((state) => state);
-  console.log(state);
+  const dispatch = useAppDispatch();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -21,11 +21,9 @@ function LoginForm() {
   const handleSubtmit = (event: FormEvent) => {
     event.preventDefault();
     console.log(formData);
-
+    dispatch(login(formData));
     setFormData(formDataDefault);
   };
-
-  // useEffect(() => {}, []);
 
   return (
     <form onSubmit={handleSubtmit}>
