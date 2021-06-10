@@ -5,7 +5,7 @@ import store from "../store";
 const getAccessToken = () => store.getState().auth.token;
 
 export const apiEndpointURL =
-  process.env.REACT_APP_API_ENDPOINT || "https://mumbleapi.herokuapp.com";
+  process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
 
 export const getApiUrl = (path: string) => `${apiEndpointURL}/${path}`;
 

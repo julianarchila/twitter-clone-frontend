@@ -10,12 +10,12 @@ interface Props {
 const LoginSignupPage: React.FC<Props> = (props) => {
   const { parameter } = props.match.params;
   const auth = useAppSelector((state) => state.auth);
-  const { user } = auth;
+  const { isAuthenticated } = auth;
   useEffect(() => {
-    if (user) {
+    if (isAuthenticated) {
       props.history.push("/");
     }
-  }, [user, props.history]);
+  }, [isAuthenticated, props.history]);
   return (
     <div className="auth">
       <h1>Hi there</h1>

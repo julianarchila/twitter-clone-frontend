@@ -21,11 +21,12 @@ const authReducer = (state = initialState, action: Action): AuthState => {
 
     case "login":
       localStorage.setItem("access", payload.token);
+      console.log(payload);
       return {
         ...state,
         token: payload.token,
         isAuthenticated: true,
-        user: payload,
+        user: payload.user,
       };
 
     default:
