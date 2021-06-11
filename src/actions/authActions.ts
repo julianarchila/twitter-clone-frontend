@@ -19,7 +19,7 @@ export const login = (loginCredentials: loginCredentials) => {
         payload: data,
       });
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
 };

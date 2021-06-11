@@ -1,5 +1,4 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
-import { useAppDispatch } from "../utilities/typedReduxHooks";
 import { login } from "../actions/authActions";
 import { useDispatch } from "react-redux";
 

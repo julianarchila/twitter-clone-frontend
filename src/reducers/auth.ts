@@ -12,6 +12,7 @@ if (token) {
 
 const authReducer = (state = initialState, action: Action): AuthState => {
   const { type, payload } = action;
+
   switch (type) {
     case "register_request":
       return { ...state, isLoading: true };

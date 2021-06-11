@@ -2,21 +2,24 @@ import React from "react";
 import { BsChatSquare, BsHeart } from "react-icons/bs";
 import { FaRetweet } from "react-icons/fa";
 
-function Tweet() {
+const defaultProfilePic =
+  "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
+interface Props {
+  tweet: any;
+}
+
+const Tweet: React.FC<Props> = ({ tweet }) => {
   return (
     <div className="tweet">
       <img
-        src="https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png"
+        src={tweet.user.profile.picture || defaultProfilePic}
         alt="profile-pic"
         className="tweet__author-pic"
       />
       <span className="tweet__author-name font-weight-bold">
-        Lorem, ipsum dolor.
+        {tweet.user.username}
       </span>
-      <div className="tweet__content">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt
-        soluta, magnam neque sequi doloribus id.
-      </div>
+      <div className="tweet__content">{tweet.content}</div>
       <div className="tweet__actions">
         <div className="tweet__actions-item">
           <small className="tweet__comment-icon">
@@ -33,11 +36,11 @@ function Tweet() {
           <small className="tweet__like-icon">
             <BsHeart />
           </small>
-          <small className="tweet__like-count">130</small>
+          <small className="tweet__like-count">{tweet.likes}</small>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Tweet;
