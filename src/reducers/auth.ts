@@ -29,6 +29,7 @@ const authReducer = (state = initialState, action: Action): AuthState => {
         token: payload.token,
         isAuthenticated: true,
         user: payload.user,
+        error: "",
       };
     case "signup":
       localStorage.setItem("access", payload.token);
@@ -38,6 +39,7 @@ const authReducer = (state = initialState, action: Action): AuthState => {
         token: payload.token,
         isAuthenticated: true,
         user: payload.user,
+        error: "",
       };
     case "signup_error":
       return {
@@ -50,12 +52,19 @@ const authReducer = (state = initialState, action: Action): AuthState => {
         ...state,
         error: payload,
       };
+    case "get_profile":
+      return {
+        ...state,
+        user: payload,
+        error: "",
+      };
     case "logout":
       return {
         ...state,
         isAuthenticated: false,
         token: "",
         user: {},
+        error: "",
       };
 
     default:

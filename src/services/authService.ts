@@ -1,4 +1,4 @@
-import { post, getApiUrl } from "./config";
+import { post, getApiUrl, get } from "./config";
 
 interface loginCredentials {
   email: string;
@@ -13,9 +13,14 @@ const signup = (credentials: any) => {
   return post(getApiUrl("users/signup/"), credentials);
 };
 
+const getProfile = () => {
+  return get(getApiUrl("users/me/"));
+};
+
 const authService = {
   login,
   signup,
+  getProfile,
 };
 
 export default authService;

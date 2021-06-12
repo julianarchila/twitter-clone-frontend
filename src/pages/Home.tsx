@@ -16,7 +16,6 @@ const Home = () => {
 
   return (
     <>
-      {console.log(state)}
       <Header />
       <div className="home">
         <div className="home__head">

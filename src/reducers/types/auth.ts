@@ -6,6 +6,7 @@ export enum authActionTypes {
   REGISTER_REQUEST = "register_request",
   LOGIN_ERROR = "login_error",
   SIGNUP_ERROR = "signup_error",
+  GET_PROFILE = "get_profile",
 }
 
 export interface AuthState {

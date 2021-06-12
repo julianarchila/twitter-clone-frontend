@@ -28,7 +28,6 @@ function SignupForm() {
   const handleSubtmit = (event: FormEvent) => {
     event.preventDefault();
     dispatch(signup(formData));
-    console.log(formData);
   };
 
   return (

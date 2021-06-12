@@ -22,9 +22,6 @@ export const login = (loginCredentials: loginCredentials) => {
         });
       })
       .catch((error: AxiosError) => {
-        console.log(error.response);
-        console.log(error.message, "foooo");
-
         dispatch({
           type: authActionTypes.LOGIN_ERROR,
           payload: error.response
@@ -55,7 +52,6 @@ interface signupCredentials {
 
 export const signup = (credentials: signupCredentials) => {
   return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
-    console.log("foooo");
     authService
       .signup(credentials)
       .then((response) => {
@@ -65,8 +61,25 @@ export const signup = (credentials: signupCredentials) => {
         });
       })
       .catch((err: AxiosError) => {
-        console.log(err.response);
-        console.log(err.message, "foooo");
+        dispatch({
+          type: authActionTypes.SIGNUP_ERROR,
+          payload: err.response ? err.response.data : { message: err.message },
+        });
+      });
+  };
+};
+
+export const getProfile = () => {
+  return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+    authService
+      .getProfile()
+      .then((response) => {
+        dispatch({
+          type: authActionTypes.GET_PROFILE,
+          payload: response.data,
+        });
+      })
+      .catch((err: AxiosError) => {
         dispatch({
           type: authActionTypes.SIGNUP_ERROR,
           payload: err.response ? err.response.data : { message: err.message },
