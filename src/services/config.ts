@@ -12,24 +12,20 @@ export const getApiUrl = (path: string) => `${apiEndpointURL}/${path}`;
 const pullData = (request: Promise<any>) => request.then(({ data }) => data);
 
 export const get = (url: string) =>
-  pullData(
-    axios.get(url, {
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `token ${getAccessToken()}`,
-      },
-    })
-  );
+  axios.get(url, {
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `token ${getAccessToken()}`,
+    },
+  });
 
 export const post = (url: string, payload: object) =>
-  pullData(
-    axios.post(url, payload, {
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${getAccessToken()}`,
-      },
-    })
-  );
+  axios.post(url, payload, {
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `Bearer ${getAccessToken()}`,
+    },
+  });
 
 export const patch = (url: string, payload: object) =>
   pullData(

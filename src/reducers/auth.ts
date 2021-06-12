@@ -3,6 +3,7 @@ import { AuthState, Action } from "./types/auth";
 const initialState: AuthState = {
   isAuthenticated: false,
   isLoading: false,
+  error: "",
 };
 const token = localStorage.getItem("access");
 if (token) {
@@ -28,6 +29,11 @@ const authReducer = (state = initialState, action: Action): AuthState => {
         token: payload.token,
         isAuthenticated: true,
         user: payload.user,
+      };
+    case "login_error":
+      return {
+        ...state,
+        error: payload,
       };
 
     default:

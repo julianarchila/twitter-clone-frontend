@@ -4,6 +4,7 @@ export enum authActionTypes {
   SIGNUP = "logut",
   LOGIN_REQUEST = "login_request",
   REGISTER_REQUEST = "register_request",
+  LOGIN_ERROR = "login_error",
 }
 
 export interface AuthState {
@@ -12,6 +13,7 @@ export interface AuthState {
   // refreshToken?: string;
   user?: object;
   isLoading: boolean;
+  error?: any;
 }
 
 export interface Action {

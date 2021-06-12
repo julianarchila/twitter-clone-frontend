@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { login } from "../actions/authActions";
 import { useDispatch } from "react-redux";
+import { useAppSelector } from "../utilities/typedReduxHooks";
 
 const formDataDefault = {
   email: "",
@@ -10,6 +11,8 @@ const formDataDefault = {
 function LoginForm() {
   const [formData, setFormData] = useState(formDataDefault);
   const dispatch = useDispatch();
+  const state = useAppSelector((state) => state.auth);
+  const error = state.error;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -21,11 +24,20 @@ function LoginForm() {
   const handleSubtmit = (event: FormEvent) => {
     event.preventDefault();
     dispatch(login(formData));
-    setFormData(formDataDefault);
   };
 
   return (
     <form onSubmit={handleSubtmit}>
+      {error.non_field_errors ? (
+        error.non_field_errors.map((err: any, idx: number) => (
+          <div key={idx} className="alert alert-danger">
+            {err}
+          </div>
+        ))
+      ) : error.message ? (
+        <div className="alert alert-danger">{error.message}</div>
+      ) : null}
+
       <div className="form-group">
         <label htmlFor="email">Email address</label>
         <input
@@ -48,6 +60,7 @@ function LoginForm() {
           onChange={handleChange}
           value={formData.password}
         />
+        {error.password ? <p>{error.password}</p> : null}
       </div>
       <button type="submit" className="btn btn-primary">
         Login
