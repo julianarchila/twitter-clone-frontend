@@ -1,4 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
+import { Link } from "react-router-dom";
 import { login } from "../actions/authActions";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../utilities/typedReduxHooks";
@@ -62,6 +63,12 @@ function LoginForm() {
         />
         {error.password ? <p>{error.password}</p> : null}
       </div>
+      <p>
+        Don't have a account?
+        <Link className="badge badge-dark" to="/signup">
+          Register Here.
+        </Link>
+      </p>
       <button type="submit" className="btn btn-primary">
         Login
       </button>

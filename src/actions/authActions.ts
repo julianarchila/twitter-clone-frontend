@@ -34,3 +34,43 @@ export const login = (loginCredentials: loginCredentials) => {
       });
   };
 };
+
+export const logout = () => {
+  return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+    localStorage.removeItem("access");
+    dispatch({
+      type: authActionTypes.LOGOUT,
+    });
+  };
+};
+
+interface signupCredentials {
+  email: string;
+  username: string;
+  first_name: string;
+  last_name: string;
+  password: string;
+  password_confirmation: string;
+}
+
+export const signup = (credentials: signupCredentials) => {
+  return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+    console.log("foooo");
+    authService
+      .signup(credentials)
+      .then((response) => {
+        dispatch({
+          type: authActionTypes.SIGNUP,
+          payload: response.data,
+        });
+      })
+      .catch((err: AxiosError) => {
+        console.log(err.response);
+        console.log(err.message, "foooo");
+        dispatch({
+          type: authActionTypes.SIGNUP_ERROR,
+          payload: err.response ? err.response.data : { message: err.message },
+        });
+      });
+  };
+};

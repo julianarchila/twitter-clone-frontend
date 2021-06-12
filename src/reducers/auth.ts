@@ -30,10 +30,32 @@ const authReducer = (state = initialState, action: Action): AuthState => {
         isAuthenticated: true,
         user: payload.user,
       };
+    case "signup":
+      localStorage.setItem("access", payload.token);
+      console.log(payload);
+      return {
+        ...state,
+        token: payload.token,
+        isAuthenticated: true,
+        user: payload.user,
+      };
+    case "signup_error":
+      return {
+        ...state,
+        error: payload,
+      };
+
     case "login_error":
       return {
         ...state,
         error: payload,
+      };
+    case "logout":
+      return {
+        ...state,
+        isAuthenticated: false,
+        token: "",
+        user: {},
       };
 
     default:
