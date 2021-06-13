@@ -19,7 +19,19 @@ const tweetsReducer = (state: TweetState = initialState, action: Action) => {
         isLoading: false,
         items: payload,
       };
+    case "create_tweet":
+      return {
+        ...state,
+        isLoading: false,
+        items: [payload, ...state.items],
+      };
     case "tweets_error":
+      return {
+        ...state,
+        isLoading: false,
+        error: payload,
+      };
+    case "create_tweet_error":
       return {
         ...state,
         isLoading: false,

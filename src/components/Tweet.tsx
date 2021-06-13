@@ -30,7 +30,7 @@ const Tweet: React.FC<Props> = ({ tweet }) => {
         <div className="tweet__actions-item">
           <small className="tweet__retweet-icon"></small>
           <FaRetweet />
-          <small className="tweet__retweet-count">56</small>
+          <small className="tweet__retweet-count">{tweet.retweets}</small>
         </div>
         <div className="tweet__actions-item">
           <small className="tweet__like-icon">

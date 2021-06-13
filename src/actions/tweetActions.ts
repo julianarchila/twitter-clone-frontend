@@ -1,7 +1,7 @@
 import { ThunkDispatch } from "redux-thunk";
 import { AnyAction } from "redux";
 import { tweetActionTypes } from "../reducers/types/tweets";
-import { get, getApiUrl } from "../services/config";
+import { get, getApiUrl, post } from "../services/config";
 import { AxiosError } from "axios";
 
 export const getTweets = () => {
@@ -22,6 +22,27 @@ export const getTweets = () => {
             error.response && error.response.data.detail
               ? error.response.data.detail
               : error.message,
+        });
+      });
+  };
+};
+
+export const createTweet = (content: any) => {
+  return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+    post(getApiUrl("tweets/"), content)
+      .then((response) => {
+        dispatch({
+          type: tweetActionTypes.CREATE_TWEET,
+          payload: response.data,
+        });
+      })
+      .catch((err: AxiosError) => {
+        dispatch({
+          type: tweetActionTypes.TWEETS_ERROR,
+          payload:
+            err.response && err.response.data.detail
+              ? err.response.data.detail
+              : err.message,
         });
       });
   };

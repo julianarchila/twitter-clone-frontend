@@ -23,7 +23,7 @@ export const post = (url: string, payload: object) =>
   axios.post(url, payload, {
     headers: {
       "Content-type": "application/json",
-      Authorization: `Bearer ${getAccessToken()}`,
+      Authorization: `token ${getAccessToken()}`,
     },
   });
 
@@ -32,7 +32,7 @@ export const patch = (url: string, payload: object) =>
     axios.patch(url, payload, {
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${getAccessToken()}`,
+        Authorization: `token ${getAccessToken()}`,
       },
     })
   );
@@ -42,7 +42,7 @@ export const put = (url: string, payload: object) =>
     axios.put(url, payload, {
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${getAccessToken()}`,
+        Authorization: `token ${getAccessToken()}`,
       },
     })
   );
@@ -52,7 +52,7 @@ export const remove = (url: string) =>
     axios.delete(url, {
       headers: {
         "Content-type": "application/json",
-        Authorization: `Bearer ${getAccessToken()}`,
+        Authorization: `token ${getAccessToken()}`,
       },
     })
   );
