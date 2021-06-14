@@ -13,7 +13,7 @@ export interface AuthState {
   isAuthenticated: boolean;
   token?: string;
   // refreshToken?: string;
-  user?: object;
+  user?: any;
   isLoading: boolean;
   error?: any;
 }

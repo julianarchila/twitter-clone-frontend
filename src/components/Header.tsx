@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { logout } from "../actions/authActions";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 
+const defaultProfilePic =
+  "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
 function Header() {
   const auth = useAppSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -24,6 +26,15 @@ function Header() {
           </button>
         ) : null}
       </ul>
+      {auth.user ? (
+        <div className="profile">
+          <img
+            src={auth.user.profile.picture || defaultProfilePic}
+            alt="profile-pic"
+            className="tweet__author-pic"
+          />
+        </div>
+      ) : null}
       <button className="btn btn-primary">Tweet</button>
     </div>
   );

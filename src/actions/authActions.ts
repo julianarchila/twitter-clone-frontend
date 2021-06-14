@@ -34,11 +34,9 @@ export const login = (loginCredentials: loginCredentials) => {
 };
 
 export const logout = () => {
-  return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
-    localStorage.removeItem("access");
-    dispatch({
-      type: authActionTypes.LOGOUT,
-    });
+  localStorage.removeItem("access");
+  return {
+    type: authActionTypes.LOGOUT,
   };
 };
 

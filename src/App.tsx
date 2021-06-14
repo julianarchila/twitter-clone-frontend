@@ -11,7 +11,8 @@ import { getProfile } from "./actions/authActions";
 
 function App() {
   const dispatch = useDispatch();
-  const { isAuthenticated } = useAppSelector((state) => state.auth);
+  const auth = useAppSelector((state) => state.auth);
+  const { isAuthenticated } = auth;
 
   useEffect(() => {
     if (isAuthenticated) {

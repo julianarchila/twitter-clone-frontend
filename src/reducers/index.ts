@@ -3,7 +3,16 @@ import { combineReducers } from "redux";
 import auth from "./auth";
 import tweetsReducer from "./tweetsReducer";
 
-export default combineReducers({
+const appReducer = combineReducers({
   auth,
   tweets: tweetsReducer,
 });
+
+const rootReducer = (state: any, action: any) => {
+  if (action.type === "logout") {
+    return appReducer(undefined, action);
+  }
+  return appReducer(state, action);
+};
+
+export default rootReducer;
