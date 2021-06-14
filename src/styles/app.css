@@ -58,6 +58,9 @@ body {
   width: 100%;
   border-bottom: 1px solid #38444d;
 }
+.parent-tweet-container {
+  padding: 30px;
+}
 .tweet__author-pic {
   width: 50px;
   border-radius: 100%;

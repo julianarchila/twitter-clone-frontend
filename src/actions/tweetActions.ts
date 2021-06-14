@@ -47,3 +47,24 @@ export const createTweet = (content: any) => {
       });
   };
 };
+
+export const retweet = (content: any) => {
+  return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+    post(getApiUrl("tweets/retweet/"), content)
+      .then((response) => {
+        dispatch({
+          type: tweetActionTypes.CREATE_TWEET,
+          payload: response.data,
+        });
+      })
+      .catch((err: AxiosError) => {
+        dispatch({
+          type: tweetActionTypes.TWEETS_ERROR,
+          payload:
+            err.response && err.response.data.detail
+              ? err.response.data.detail
+              : err.message,
+        });
+      });
+  };
+};

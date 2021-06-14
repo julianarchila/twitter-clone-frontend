@@ -3,6 +3,7 @@ export enum tweetActionTypes {
   GET_TWEETS = "get_tweets",
   TWEETS_ERROR = "tweets_error",
   CREATE_TWEET = "create_tweet",
+  RETWEET = "retweet",
   CREATE_TWEET_ERROR = "create_tweet_error",
 }
 
