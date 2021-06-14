@@ -22,6 +22,7 @@ export const login = (loginCredentials: loginCredentials) => {
         });
       })
       .catch((error: AxiosError) => {
+        console.log(error.response);
         dispatch({
           type: authActionTypes.LOGIN_ERROR,
           payload: error.response

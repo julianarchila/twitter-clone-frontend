@@ -1,4 +1,5 @@
-import { post, getApiUrl, get } from "./config";
+import axios from "axios";
+import { getApiUrl, get } from "./config";
 
 interface loginCredentials {
   email: string;
@@ -6,11 +7,19 @@ interface loginCredentials {
 }
 
 const login = (credentials: loginCredentials) => {
-  return post(getApiUrl("users/login/"), credentials);
+  return axios.post(getApiUrl("users/login/"), credentials, {
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
 };
 
 const signup = (credentials: any) => {
-  return post(getApiUrl("users/signup/"), credentials);
+  return axios.post(getApiUrl("users/signup/"), credentials, {
+    headers: {
+      "Content-type": "application/json",
+    },
+  });
 };
 
 const getProfile = () => {
