@@ -18,6 +18,7 @@ function TweetForm() {
   const handleSubtmit = (e: FormEvent) => {
     e.preventDefault();
     dispatch(createTweet(formData));
+    setFormData({ content: "" });
   };
   return (
     <form onSubmit={handleSubtmit}>

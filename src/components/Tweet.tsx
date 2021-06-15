@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { BsChatSquare, BsHeart, BsHeartFill } from "react-icons/bs";
 import { FaRetweet } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { retweet } from "../actions/tweetActions";
 import { getApiUrl, post } from "../services/config";
 import ParentTweet from "./ParentTweet";
+import RetweetModal from "./RetweetModal";
 
 const defaultProfilePic =
   "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
@@ -14,7 +13,7 @@ interface Props {
 
 const Tweet: React.FC<Props> = (props) => {
   const [tweet, setTweet] = useState(props.tweet);
-  const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleLike = async () => {
     const response = await post(getApiUrl("tweets/like/"), {
       tweet: tweet.id,
@@ -22,13 +21,13 @@ const Tweet: React.FC<Props> = (props) => {
     setTweet(response.data);
   };
 
-  const handleRetwet = async () => {
-    const content = { parent: tweet.id };
-    dispatch(retweet(content));
-  };
-
   return (
     <div className="tweet">
+      <RetweetModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        tweet={tweet}
+      />
       <img
         src={tweet.user.profile.picture || defaultProfilePic}
         alt="profile-pic"
@@ -54,7 +53,7 @@ const Tweet: React.FC<Props> = (props) => {
         </div>
 
         <div
-          onClick={handleRetwet}
+          onClick={() => setIsModalOpen(true)}
           className="tweet__actions-item"
           style={{ cursor: "pointer" }}
         >
