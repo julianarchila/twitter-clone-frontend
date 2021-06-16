@@ -3,6 +3,8 @@ import Modal from "../utilities/Modal";
 import ParentTweet from "./ParentTweet";
 import { useDispatch } from "react-redux";
 import { retweet } from "../actions/tweetActions";
+import { useAppSelector } from "../utilities/typedReduxHooks";
+import "../styles/RetweetModal.css";
 
 const defaultProfilePic =
   "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
@@ -16,6 +18,7 @@ interface Props {
 const RetweetModal: React.FC<Props> = (props) => {
   const { tweet, isOpen, onClose } = props;
   const dispatch = useDispatch();
+  const current_user = useAppSelector((state) => state.auth.user);
 
   const [formData, setFormData] = useState({
     content: "",
@@ -38,25 +41,31 @@ const RetweetModal: React.FC<Props> = (props) => {
 
   return (
     <Modal isOpen={isOpen} onClose={props.onClose}>
-      <img
-        src={tweet.user.profile.picture || defaultProfilePic}
-        alt="profile-pic"
-        className="tweet__author-pic"
-      />
-      <form onSubmit={handleSubtmit}>
-        <textarea
-          className="form-control tweetForm__input"
-          placeholder="What's happening?"
-          name="content"
-          value={formData.content}
-          onChange={handleChange}
-        />
-
-        <div className="parent-tweet-container">
-          <ParentTweet tweet={tweet} />
+      <div className="retweetModal">
+        <div className="retweetModal-left">
+          <img
+            src={current_user.profile.picture || defaultProfilePic}
+            alt="profile-pic"
+            className="modal__user-pic"
+          />
         </div>
-        <button className="btn btn-primary">Tweet</button>
-      </form>
+        <div className="retweetModal-rigth">
+          <form onSubmit={handleSubtmit}>
+            <textarea
+              className="form-control tweetForm__input"
+              placeholder="Add a comment"
+              name="content"
+              value={formData.content}
+              onChange={handleChange}
+            />
+
+            <div className="retweet-container">
+              <ParentTweet tweet={tweet} />
+            </div>
+            <button className="btn btn-primary">Tweet</button>
+          </form>
+        </div>
+      </div>
     </Modal>
   );
 };

@@ -37,7 +37,6 @@
 }
 
 .Modal__content {
-  padding: 4px;
   display: flex;
-  /* flex: 1; */
+  flex-wrap: wrap;
 }

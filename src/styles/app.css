@@ -42,7 +42,7 @@ body {
 }
 
 .tweetForm__input {
-  background-color: #15202b;
+  background-color: #15202b !important;
 }
 
 .feed {

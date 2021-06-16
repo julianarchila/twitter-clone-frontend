@@ -1,0 +1,20 @@
+.retweetModal {
+  display: flex;
+  flex: 1;
+}
+.modal__user-pic {
+  width: 50px;
+  border-radius: 100%;
+}
+.retweetModal-left {
+  padding: 5px;
+}
+
+.retweetModal-rigth {
+  flex: 1;
+  padding: 3px 10px;
+}
+.retweet-container {
+  border: 1px solid #38444d;
+  margin: 20px 30px;
+}
