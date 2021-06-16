@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { logout } from "../actions/authActions";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 
@@ -16,11 +16,17 @@ function Header() {
   return (
     <div className="header">
       <ul className="header__list">
-        <li className="header__list-item">Home</li>
+        <Link to="/">
+          <li className="header__list-item">Home</li>
+        </Link>
         <li className="header__list-item">Explore</li>
         <li className="header__list-item">Notifications</li>
         <li className="header__list-item">Messages</li>
-        <li className="header__list-item">Profile</li>
+
+        <Link to={`/${auth.user ? auth.user.username : null}`}>
+          <li className="header__list-item">Profile</li>
+        </Link>
+
         <li className="header__list-item">More</li>
         {auth.isAuthenticated ? (
           <button className="btn btn-info" onClick={handleLogout}>
@@ -29,7 +35,7 @@ function Header() {
         ) : null}
       </ul>
       {auth.user ? (
-        <div className="profile">
+        <div className="header__profile">
           <img
             src={auth.user.profile.picture || defaultProfilePic}
             alt="profile-pic"

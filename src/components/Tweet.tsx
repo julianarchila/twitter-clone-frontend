@@ -4,6 +4,7 @@ import { FaRetweet } from "react-icons/fa";
 import { getApiUrl, post } from "../services/config";
 import ParentTweet from "./ParentTweet";
 import RetweetModal from "./RetweetModal";
+import { Link } from "react-router-dom";
 
 const defaultProfilePic =
   "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
@@ -28,14 +29,16 @@ const Tweet: React.FC<Props> = (props) => {
         onClose={() => setIsModalOpen(false)}
         tweet={tweet}
       />
-      <img
-        src={tweet.user.profile.picture || defaultProfilePic}
-        alt="profile-pic"
-        className="tweet__author-pic"
-      />
-      <span className="tweet__author-name font-weight-bold">
-        {tweet.user.username}
-      </span>
+      <Link to={`/${tweet.user.username}`}>
+        <img
+          src={tweet.user.profile.picture || defaultProfilePic}
+          alt="profile-pic"
+          className="tweet__author-pic"
+        />
+        <span className="tweet__author-name font-weight-bold">
+          {tweet.user.username}
+        </span>
+      </Link>
       <div className="tweet__content">{tweet.content}</div>
 
       {tweet.parent ? (

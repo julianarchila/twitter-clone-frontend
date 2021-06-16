@@ -8,6 +8,7 @@ import PrivateRoute from "./utilities/PrivateRoute";
 import { useAppSelector } from "./utilities/typedReduxHooks";
 import { useDispatch } from "react-redux";
 import { getProfile } from "./actions/authActions";
+import Profile from "./pages/Profile";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ function App() {
             path="/:parameter(login|signup)"
             component={LoginSignupPage}
           />
+          <Route exact path="/:username" component={Profile} />
         </Switch>
       </BrowserRouter>
     </div>
