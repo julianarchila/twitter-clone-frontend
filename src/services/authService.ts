@@ -7,7 +7,7 @@ interface loginCredentials {
 }
 
 const login = (credentials: loginCredentials) => {
-  return axios.post(getApiUrl("users/login/"), credentials, {
+  return axios.post(getApiUrl("auth/login/"), credentials, {
     headers: {
       "Content-type": "application/json",
     },
@@ -15,7 +15,7 @@ const login = (credentials: loginCredentials) => {
 };
 
 const signup = (credentials: any) => {
-  return axios.post(getApiUrl("users/signup/"), credentials, {
+  return axios.post(getApiUrl("auth/signup/"), credentials, {
     headers: {
       "Content-type": "application/json",
     },
@@ -23,7 +23,7 @@ const signup = (credentials: any) => {
 };
 
 const getProfile = () => {
-  return get(getApiUrl("users/me/"));
+  return get(getApiUrl("auth/me/"));
 };
 
 const authService = {

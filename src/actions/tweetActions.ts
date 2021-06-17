@@ -8,7 +8,7 @@ export const getTweets = () => {
   return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
     dispatch({ type: tweetActionTypes.REQUEST_GET_TWEETS });
 
-    get(getApiUrl("tweets/"))
+    get(getApiUrl("feed/home/"))
       .then((response) =>
         dispatch({
           type: tweetActionTypes.GET_TWEETS,

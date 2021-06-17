@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { logout } from "../actions/authActions";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 
@@ -11,7 +11,6 @@ function Header() {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
-    <Redirect to="/login" />;
   };
   return (
     <div className="header">
