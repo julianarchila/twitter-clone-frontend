@@ -4,13 +4,16 @@ import { getTweets } from "../actions/tweetActions";
 import Header from "../components/Header";
 import Tweet from "../components/Tweet";
 import { getApiUrl, get } from "../services/config";
-import "../styles/Profile.css";
 import { useAppSelector } from "../utilities/typedReduxHooks";
+
+import "../styles/Profile.css";
+const defaultHeader =
+  "https://i.pinimg.com/originals/39/81/be/3981be23abfd0d5951fe32ba9ae37945.jpg";
 
 function Profile(props: any) {
   const tweets = useAppSelector((state) => state.tweets);
   const username = props.match.params.username;
-  const [user, setUser] = useState<any>();
+  const [user, setUser] = useState<any>(null);
   const [error, setError] = useState("");
   const [loadingUser, setLoadingUser] = useState(true);
   const dispatch = useDispatch();
@@ -38,22 +41,42 @@ function Profile(props: any) {
     console.log(error);
     return <p>Something is broken</p>;
   }
+  if (!user) {
+    return <p>User not found</p>;
+  }
   return (
     <>
       <Header />
       <div className="profile">
         <div className="profile__head-nav">
-          <small>Go Back</small>
-          User's Name
+          <small>Go Back</small> ------ User's Name
         </div>
         <div className="profile__head">
-          <img src={user.profile.header} alt="header" />
-          <img src={user.profile.picture} alt="profile" />
-          <p>{user.username}</p>
-          <p>@{user.username}</p>
-          <small>{user.following_count} following</small>
-          <small>{user.followers_count} followers</small>
+          <img
+            className="profile__header-img"
+            src={user.profile.header || defaultHeader}
+            alt="header"
+          />
+          <div className="profile__head__top">
+            <img
+              className="profile__user-picture"
+              src={user.profile.picture}
+              alt="profile"
+            />
+            <div className="profile__head__actions">
+              <button className="btn btn-primary">Follow</button>
+            </div>
+          </div>
+          <div className="profile__head__info">
+            <div className="font-weight-bold">
+              {user.first_name} {user.last_name}
+            </div>
+            <p>@{user.username}</p>
+            <small>{user.following_count} following</small>
+            <small>{user.followers_count} followers</small>
+          </div>
         </div>
+
         <div className="profile__feed">
           {tweets.items.map((tweet: any) => {
             return <Tweet tweet={tweet} key={tweet.id} />;

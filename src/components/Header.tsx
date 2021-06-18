@@ -35,11 +35,13 @@ function Header() {
       </ul>
       {auth.user ? (
         <div className="header__profile">
-          <img
-            src={auth.user.profile.picture || defaultProfilePic}
-            alt="profile-pic"
-            className="tweet__author-pic"
-          />
+          <Link to={`/${auth.user.username}`}>
+            <img
+              src={auth.user.profile.picture || defaultProfilePic}
+              alt="profile-pic"
+              className="tweet__author-pic"
+            />
+          </Link>
         </div>
       ) : null}
       <button className="btn btn-primary">Tweet</button>

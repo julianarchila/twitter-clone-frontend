@@ -4,4 +4,53 @@
   flex-direction: column;
   align-items: center;
   border: 1px solid #38444d;
+  max-width: 700px;
+  min-width: 500px;
+}
+
+.profile__head-nav {
+  display: flex;
+  width: 100%;
+  padding: 15px 5px;
+}
+
+.profile__head {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
+  border-bottom: 1px solid #38444d;
+}
+
+.profile__header-img {
+  width: 100%;
+  max-height: 200px;
+  margin-bottom: -50px;
+}
+.profile__head__top {
+  display: flex;
+  justify-content: space-between;
+}
+.profile__user-picture {
+  width: 20%;
+  border-radius: 50%;
+}
+
+.profile__head__actions {
+  margin-top: 60px;
+}
+
+.profile__head__info {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 15px;
+}
+
+.profile__feed {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  overflow-y: auto;
 }
