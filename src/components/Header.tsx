@@ -44,7 +44,6 @@ function Header() {
           </Link>
         </div>
       ) : null}
-      <button className="btn btn-primary">Tweet</button>
     </div>
   );
 }

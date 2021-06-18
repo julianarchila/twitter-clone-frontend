@@ -3,10 +3,11 @@ export enum authActionTypes {
   LOGOUT = "logout",
   SIGNUP = "signup",
   LOGIN_REQUEST = "login_request",
-  REGISTER_REQUEST = "register_request",
+  SINGUP_REQUEST = "signup_request",
   LOGIN_ERROR = "login_error",
   SIGNUP_ERROR = "signup_error",
   GET_PROFILE = "get_profile",
+  GET_PROFILE_REQUEST = "get_profile_request",
 }
 
 export interface AuthState {

@@ -30,6 +30,8 @@ body {
   flex-direction: column;
   align-items: center;
   border: 1px solid #38444d;
+  max-width: 700px;
+  min-width: 500px;
 }
 .home__head {
   display: flex;

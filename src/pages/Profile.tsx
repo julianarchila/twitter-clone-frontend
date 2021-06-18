@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getTweets } from "../actions/tweetActions";
 import Header from "../components/Header";
 import Tweet from "../components/Tweet";
-import { getApiUrl, get } from "../services/config";
+import { getApiUrl, get, post } from "../services/config";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 
 import "../styles/Profile.css";
@@ -12,6 +12,7 @@ const defaultHeader =
 
 function Profile(props: any) {
   const tweets = useAppSelector((state) => state.tweets);
+  const auth = useAppSelector((state) => state.auth);
   const username = props.match.params.username;
   const [user, setUser] = useState<any>(null);
   const [error, setError] = useState("");
@@ -34,7 +35,16 @@ function Profile(props: any) {
     dispatch(getTweets());
   }, [dispatch]);
 
-  if (loadingUser) {
+  const handleFollow = async () => {
+    const response = await post(getApiUrl("users/follow_toogle/"), {
+      user: user.username,
+    });
+    const data = response.data;
+    setUser({ ...user, following: data.following });
+    console.log(response.data);
+  };
+
+  if (loadingUser || auth.isLoading) {
     return <p>Loading...</p>;
   }
   if (error) {
@@ -64,7 +74,16 @@ function Profile(props: any) {
               alt="profile"
             />
             <div className="profile__head__actions">
-              <button className="btn btn-primary">Follow</button>
+              {auth.isAuthenticated ? (
+                auth.user.username !== user.username ? (
+                  <button
+                    onClick={handleFollow}
+                    className="btn btn-primary mr-3"
+                  >
+                    {user.following ? "Unfollow" : "Follow"}
+                  </button>
+                ) : null
+              ) : null}
             </div>
           </div>
           <div className="profile__head__info">

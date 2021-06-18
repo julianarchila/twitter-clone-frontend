@@ -15,9 +15,6 @@ const authReducer = (state = initialState, action: Action): AuthState => {
   const { type, payload } = action;
 
   switch (type) {
-    case "register_request":
-      return { ...state, isLoading: true };
-
     case "login_request":
       return { ...state, isLoading: true };
 
@@ -29,7 +26,18 @@ const authReducer = (state = initialState, action: Action): AuthState => {
         isAuthenticated: true,
         user: payload.user,
         error: "",
+        isLoading: false,
       };
+
+    case "login_error":
+      return {
+        ...state,
+        error: payload,
+      };
+
+    case "signup_request":
+      return { ...state, isLoading: true };
+
     case "signup":
       localStorage.setItem("access", payload.token);
       return {
@@ -38,25 +46,33 @@ const authReducer = (state = initialState, action: Action): AuthState => {
         isAuthenticated: true,
         user: payload.user,
         error: "",
+        isLoading: false,
       };
     case "signup_error":
       return {
         ...state,
         error: payload,
       };
+    case "get_profile_request":
+      return { ...state, isLoading: true };
 
-    case "login_error":
-      return {
-        ...state,
-        error: payload,
-      };
     case "get_profile":
       return {
         ...state,
         user: payload,
         error: "",
+        isLoading: false,
       };
 
+    case "logout":
+      return {
+        ...state,
+        isAuthenticated: false,
+        isLoading: false,
+        token: "",
+        user: null,
+        error: "",
+      };
     default:
       return state;
   }

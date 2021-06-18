@@ -51,6 +51,7 @@ interface signupCredentials {
 
 export const signup = (credentials: signupCredentials) => {
   return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+    dispatch({ type: authActionTypes.SINGUP_REQUEST });
     authService
       .signup(credentials)
       .then((response) => {
@@ -70,6 +71,7 @@ export const signup = (credentials: signupCredentials) => {
 
 export const getProfile = () => {
   return async (dispatch: ThunkDispatch<any, any, AnyAction>) => {
+    dispatch({ type: authActionTypes.GET_PROFILE_REQUEST });
     authService
       .getProfile()
       .then((response) => {
