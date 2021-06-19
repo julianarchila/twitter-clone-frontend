@@ -12,7 +12,7 @@ export const getTweets = () => {
       .then((response) =>
         dispatch({
           type: tweetActionTypes.GET_TWEETS,
-          payload: response.data,
+          payload: response.data.results,
         })
       )
       .catch((error: AxiosError) => {
