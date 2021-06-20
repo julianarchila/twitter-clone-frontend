@@ -6,12 +6,14 @@ import { useAppSelector } from "../utilities/typedReduxHooks";
 
 const defaultProfilePic =
   "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
+
 function Header() {
   const auth = useAppSelector((state) => state.auth);
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch(logout());
   };
+
   return (
     <div className="header">
       <ul className="header__list">

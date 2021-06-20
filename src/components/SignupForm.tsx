@@ -31,7 +31,7 @@ function SignupForm() {
   };
 
   return (
-    <form onSubmit={handleSubtmit}>
+    <form onSubmit={handleSubtmit} className="signup-form">
       <legend>Sign Up</legend>
       {error.non_field_errors ? (
         error.non_field_errors.map((err: any, idx: number) => (
@@ -46,7 +46,8 @@ function SignupForm() {
         <label htmlFor="email">Email address</label>
         <input
           type="email"
-          className="form-control"
+          className="form-input"
+          placeholder="Email"
           name="email"
           id="email"
           aria-describedby="emailHelp"
@@ -61,7 +62,8 @@ function SignupForm() {
         <label htmlFor="username">Username</label>
         <input
           type="text"
-          className="form-control"
+          className="form-input"
+          placeholder="Username"
           id="username"
           name="username"
           onChange={handleChange}
@@ -75,7 +77,8 @@ function SignupForm() {
         <label htmlFor="first_name">First Name</label>
         <input
           type="text"
-          className="form-control"
+          className="form-input"
+          placeholder="First Name"
           id="first_name"
           name="first_name"
           onChange={handleChange}
@@ -88,7 +91,8 @@ function SignupForm() {
         <label htmlFor="last_name">Last name</label>
         <input
           type="text"
-          className="form-control"
+          className="form-input"
+          placeholder="Last name"
           id="last_name"
           name="last_name"
           onChange={handleChange}
@@ -101,7 +105,8 @@ function SignupForm() {
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          className="form-control"
+          className="form-input"
+          placeholder="Password"
           id="password"
           name="password"
           onChange={handleChange}
@@ -115,7 +120,8 @@ function SignupForm() {
         <label htmlFor="password_confirmation">Password Confirmation</label>
         <input
           type="password"
-          className="form-control"
+          className="form-input"
+          placeholder="Confirmation"
           id="password_confirmation"
           name="password_confirmation"
           onChange={handleChange}
@@ -129,7 +135,7 @@ function SignupForm() {
           Login here.
         </Link>
       </p>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary register-button">
         Register
       </button>
     </form>
