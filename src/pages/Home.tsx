@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 import { useDispatch } from "react-redux";
 
+import '../styles/app/home.css';
+
 const Home = () => {
   const state = useAppSelector((state) => state.tweets);
   const dispatch = useDispatch();
@@ -15,7 +17,7 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="home__page">
       <Header />
       <div className="home">
         <div className="home__head">
@@ -29,12 +31,12 @@ const Home = () => {
         ) : null}
 
         <div className="feed">
-          {state.items.map((tweet: any) => {
+          {/* {state.items.map((tweet: any) => {
             return <Tweet tweet={tweet} key={tweet.id} />;
-          })}
+          })} */}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
