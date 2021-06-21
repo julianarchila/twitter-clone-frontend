@@ -23,13 +23,13 @@ function TweetForm() {
   return (
     <form onSubmit={handleSubtmit}>
       <textarea
-        className="form-control tweetForm__input"
+        className="tweetForm__input"
         placeholder="What's happening?"
         name="content"
         value={formData.content}
         onChange={handleChange}
       />
-      <button className="btn btn-primary">Tweet</button>
+      <button className="button">Tweet</button>
     </form>
   );
 }

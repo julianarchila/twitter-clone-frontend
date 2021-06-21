@@ -9,7 +9,7 @@ function ParentTweet(props: any) {
         alt="profile-pic"
         className="tweet__author-pic"
       />
-      <span className="tweet__author-name font-weight-bold">
+      <span className="tweet__author-name">
         {tweet.user.username}
       </span>
       <div className="tweet__content">{tweet.content}</div>

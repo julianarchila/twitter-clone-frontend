@@ -31,9 +31,9 @@ const Home = () => {
         ) : null}
 
         <div className="feed">
-          {/* {state.items.map((tweet: any) => {
+          {state.items.map((tweet: any) => {
             return <Tweet tweet={tweet} key={tweet.id} />;
-          })} */}
+          })}
         </div>
       </div>
     </div>

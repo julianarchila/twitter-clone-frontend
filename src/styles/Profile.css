@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   border: 1px solid #38444d;
+  height: 100%;
   max-width: 700px;
   min-width: 500px;
 }
@@ -53,4 +54,13 @@
   height: 100%;
   flex: 1;
   overflow-y: auto;
+}
+.profile__feed::-webkit-scrollbar {
+  width: 10px;
+  height: 100%;
+  background: transparent;
+}
+.profile__feed::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
 }

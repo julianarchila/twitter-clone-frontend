@@ -52,7 +52,7 @@ const RetweetModal: React.FC<Props> = (props) => {
         <div className="retweetModal-rigth">
           <form onSubmit={handleSubtmit}>
             <textarea
-              className="form-control tweetForm__input"
+              className="tweetForm__input"
               placeholder="Add a comment"
               name="content"
               value={formData.content}
@@ -62,7 +62,7 @@ const RetweetModal: React.FC<Props> = (props) => {
             <div className="retweet-container">
               <ParentTweet tweet={tweet} />
             </div>
-            <button className="btn btn-primary">Tweet</button>
+            <button className="button">Tweet</button>
           </form>
         </div>
       </div>
