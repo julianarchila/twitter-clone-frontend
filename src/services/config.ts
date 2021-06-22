@@ -2,7 +2,7 @@ import axios from "axios";
 
 import store from "../store";
 
-const getAccessToken = () => store.getState().auth.token;
+export const getAccessToken = () => store.getState().auth.token;
 
 export const apiEndpointURL =
   process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
@@ -28,14 +28,12 @@ export const post = (url: string, payload: object) =>
   });
 
 export const patch = (url: string, payload: object) =>
-  pullData(
-    axios.patch(url, payload, {
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `token ${getAccessToken()}`,
-      },
-    })
-  );
+  axios.patch(url, payload, {
+    headers: {
+      "Content-type": "application/json",
+      Authorization: `token ${getAccessToken()}`,
+    },
+  });
 
 export const put = (url: string, payload: object) =>
   pullData(

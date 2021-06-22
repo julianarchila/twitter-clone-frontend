@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { getApiUrl, post } from "../services/config";
+import ProfileEditModal from "./ProfileEditModal";
 
 const defaultHeader =
   "https://i.pinimg.com/originals/39/81/be/3981be23abfd0d5951fe32ba9ae37945.jpg";
@@ -12,6 +13,7 @@ interface Props {
 
 const ProfileHead: React.FC<Props> = (props) => {
   const { user, setUser, auth } = props;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleFollow = async () => {
     const response = await post(getApiUrl("users/follow_toogle/"), {
@@ -24,6 +26,10 @@ const ProfileHead: React.FC<Props> = (props) => {
 
   return (
     <div className="profile__head">
+      <ProfileEditModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
       <img
         className="profile__header-img"
         src={user.profile.header || defaultHeader}
@@ -37,11 +43,18 @@ const ProfileHead: React.FC<Props> = (props) => {
         />
         <div className="profile__head__actions">
           {auth.isAuthenticated ? (
-            auth.user.username !== user.username ? (
+            auth.user.username === user.username ? (
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="btn btn-primary mr-3"
+              >
+                Edit
+              </button>
+            ) : (
               <button onClick={handleFollow} className="btn btn-primary mr-3">
                 {user.following ? "Unfollow" : "Follow"}
               </button>
-            ) : null
+            )
           ) : null}
         </div>
       </div>
