@@ -29,6 +29,7 @@ function LoginForm() {
 
   return (
     <form onSubmit={handleSubtmit}>
+      <legend>Login</legend>
       {error.non_field_errors ? (
         error.non_field_errors.map((err: any, idx: number) => (
           <div key={idx} className="alert alert-danger">
@@ -43,23 +44,25 @@ function LoginForm() {
         <label htmlFor="email">Email address</label>
         <input
           type="email"
-          className="form-control"
+          className="form-input"
           id="email"
           name="email"
           onChange={handleChange}
           value={formData.email}
           aria-describedby="emailHelp"
+          placeholder="Email"
         />
       </div>
       <div className="form-group">
         <label htmlFor="password">Password</label>
         <input
           type="password"
-          className="form-control"
+          className="form-input"
           id="password"
           name="password"
           onChange={handleChange}
           value={formData.password}
+          placeholder="Password"
         />
         {error.password ? <p>{error.password}</p> : null}
       </div>
@@ -69,7 +72,7 @@ function LoginForm() {
           Register Here.
         </Link>
       </p>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn btn-primary register-button">
         Login
       </button>
     </form>

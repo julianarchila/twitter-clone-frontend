@@ -5,7 +5,7 @@ import store from "../store";
 export const getAccessToken = () => store.getState().auth.token;
 
 export const apiEndpointURL =
-  process.env.REACT_APP_API_ENDPOINT || "http://localhost:8000";
+  process.env.REACT_APP_API_ENDPOINT || "https://apitwitterclone.herokuapp.com";
 
 export const getApiUrl = (path: string) => `${apiEndpointURL}/${path}`;
 

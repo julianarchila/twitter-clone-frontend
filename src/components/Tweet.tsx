@@ -29,13 +29,13 @@ const Tweet: React.FC<Props> = (props) => {
         onClose={() => setIsModalOpen(false)}
         tweet={tweet}
       />
-      <Link to={`/${tweet.user.username}`}>
+      <Link to={`/${tweet.user.username}`} className="tweet__author">
         <img
           src={tweet.user.profile.picture || defaultProfilePic}
           alt="profile-pic"
           className="tweet__author-pic"
         />
-        <span className="tweet__author-name font-weight-bold">
+        <span className="tweet__author-name">
           {tweet.user.username}
         </span>
       </Link>
@@ -48,9 +48,9 @@ const Tweet: React.FC<Props> = (props) => {
       ) : null}
 
       <div className="tweet__actions">
-        <div className="tweet__actions-item" style={{ cursor: "pointer" }}>
+        <div className="tweet__actions-item">
           <div className="tweet__comment-icon">
-            <BsChatSquare />
+            <BsChatSquare className="icon"/>
             <small className="tweet__comments-count">0</small>
           </div>
         </div>
@@ -58,10 +58,9 @@ const Tweet: React.FC<Props> = (props) => {
         <div
           onClick={() => setIsModalOpen(true)}
           className="tweet__actions-item"
-          style={{ cursor: "pointer" }}
         >
           <div className="tweet__retweet-icon">
-            <FaRetweet />
+            <FaRetweet className="icon"/>
             <small className="tweet__retweet-count">{tweet.retweets}</small>
           </div>
         </div>
@@ -69,10 +68,9 @@ const Tweet: React.FC<Props> = (props) => {
         <div
           onClick={handleLike}
           className="tweet__actions-item"
-          style={{ cursor: "pointer" }}
         >
           <div className="tweet__like-icon">
-            {tweet.liked ? <BsHeartFill color="red" /> : <BsHeart />}
+            {tweet.liked ? <BsHeartFill color="rgb(249, 50, 50)" className="icon"/> : <BsHeart className="icon"/>}
             <small className="tweet__like-count">{tweet.likes}</small>
           </div>
         </div>
