@@ -50,15 +50,13 @@ function Header() {
           )}
 
         {auth.user && (
-          <div className="header__profile">
-            <Link to={`/${auth.user.username}`}>
+            <Link to={`/${auth.user.username}`} className="header__profile">
               <img
                 src={auth.user.profile.picture || defaultProfilePic}
                 alt="profile-pic"
                 className="tweet__author-pic"
               />
             </Link>
-          </div>
         )}
       </div>
 

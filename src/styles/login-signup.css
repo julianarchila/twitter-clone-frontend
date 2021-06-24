@@ -1,5 +1,5 @@
 .auth {
-    width: 50%;
+    width: 40%;
     min-height: 300px;
     background: rgba(0, 0, 0, 0.1);
     padding: 2rem 1.3rem;
@@ -45,7 +45,7 @@
     display: flex;
     justify-content: center;
 }
-@media (max-width: 700px){
+@media (max-width: 800px){
     .auth {
       width: 100%;
       display: flex;

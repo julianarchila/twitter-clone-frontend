@@ -2,12 +2,15 @@ import React from "react";
 import Header from "../components/Header";
 import Tweet from "../components/Tweet";
 import TweetForm from "../components/TweetForm";
+import Explore from "../components/ExploreAside";
 import { getTweets } from "../actions/tweetActions";
 import { useEffect } from "react";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 import { useDispatch } from "react-redux";
 
 import '../styles/app/home.css';
+import '../styles/app/header.css';
+import '../styles/app/explore.css';
 
 const Home = () => {
   const state = useAppSelector((state) => state.tweets);
@@ -36,6 +39,7 @@ const Home = () => {
           })}
         </div>
       </div>
+      <Explore />
     </div>
   );
 };

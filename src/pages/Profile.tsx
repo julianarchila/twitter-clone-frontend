@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getTweets } from "../actions/tweetActions";
 import Header from "../components/Header";
+import Explore from '../components/ExploreAside';
 import ProfileHead from "../components/ProfileHead";
 import { getApiUrl, get } from "../services/config";
 import { useAppSelector } from "../utilities/typedReduxHooks";
@@ -61,6 +62,7 @@ function Profile(props: any) {
 
         <ProfileFeed username={username} />
       </div>
+    <Explore />
     </>
   );
 }

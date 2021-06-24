@@ -29,7 +29,7 @@ function TweetForm() {
         value={formData.content}
         onChange={handleChange}
       />
-      <button className="button">Tweet</button>
+      <button className="button font-weight-bold">Tweet</button>
     </form>
   );
 }
