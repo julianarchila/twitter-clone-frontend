@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Tweet from "../components/Tweet";
 import TweetForm from "../components/TweetForm";
 import Explore from "../components/ExploreAside";
+import Loading from '../components/Loading';
 import { getTweets } from "../actions/tweetActions";
 import { useEffect } from "react";
 import { useAppSelector } from "../utilities/typedReduxHooks";
@@ -28,7 +29,7 @@ const Home = () => {
           <TweetForm />
         </div>
         {state.isLoading ? (
-          <p>Loading</p>
+          <Loading />
         ) : state.error ? (
           <p>{state.error}</p>
         ) : null}

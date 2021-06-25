@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getTweets } from "../actions/tweetActions";
 import Header from "../components/Header";
+import Loading from "../components/Loading";
 import Explore from '../components/ExploreAside';
 import ProfileHead from "../components/ProfileHead";
 import { getApiUrl, get } from "../services/config";
@@ -42,7 +43,7 @@ function Profile(props: any) {
   }, [dispatch]);
 
   if (loadingUser || auth.isLoading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
   if (error) {
     console.log(error);

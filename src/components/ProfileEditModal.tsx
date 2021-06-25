@@ -1,5 +1,6 @@
 import React, { FormEvent } from "react";
 import Modal from "../utilities/Modal";
+import Loading from './Loading';
 import { useAppSelector } from "../utilities/typedReduxHooks";
 import "../styles/ProfileEditModal.css";
 import { useState } from "react";
@@ -49,7 +50,7 @@ const ProfileEditModal: React.FC<Props> = (props) => {
   };
 
   if (auth.isLoading || !user) {
-    return <p>Loading</p>;
+    return <Loading />;
   }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
