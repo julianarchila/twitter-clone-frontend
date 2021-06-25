@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 import { useDispatch } from "react-redux";
 
-import '../styles/app/home.css';
+import "../styles/app/home.css";
 
 const Home = () => {
   const state = useAppSelector((state) => state.tweets);
