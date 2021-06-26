@@ -5,6 +5,7 @@ export enum tweetActionTypes {
   CREATE_TWEET = "create_tweet",
   RETWEET = "retweet",
   CREATE_TWEET_ERROR = "create_tweet_error",
+  REMOVE_TWEET = "remove_tweet",
 }
 
 export interface TweetState {

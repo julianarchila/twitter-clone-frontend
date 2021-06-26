@@ -49,8 +49,9 @@ const Tweet: React.FC<Props> = (props) => {
                 <div className="tweet-menu__point"></div>
             </div>
             <TweetMenu
-              isOpen={isMenuOpen}
               tweet={tweet}
+              isOpen={isMenuOpen}
+              setOpen={setIsMenuOpen}
             />
         </div>
       </div>

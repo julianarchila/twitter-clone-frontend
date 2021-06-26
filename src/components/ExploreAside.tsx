@@ -15,7 +15,7 @@ function ExploreAside() {
                         <div>
                             <figure>
                                 <img src="https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDIvMmE3ODAzYzUtMWM5MC00ZDk4LWJmOTQtNTVjMDcxOWZmYjc5LmpwZw==.jpg"
-                                    alt="Image" />
+                                    alt="test image" />
                             </figure>
                             <p>Name</p>
                         </div>
@@ -24,7 +24,7 @@ function ExploreAside() {
                         <div>
                             <figure>
                                 <img src="https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDIvMmE3ODAzYzUtMWM5MC00ZDk4LWJmOTQtNTVjMDcxOWZmYjc5LmpwZw==.jpg"
-                                    alt="Image" />
+                                    alt="test image" />
                             </figure>
                             <p>Name</p>
                         </div>
@@ -33,7 +33,7 @@ function ExploreAside() {
                         <div>
                             <figure>
                                 <img src="https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDIvMmE3ODAzYzUtMWM5MC00ZDk4LWJmOTQtNTVjMDcxOWZmYjc5LmpwZw==.jpg"
-                                    alt="Image" />
+                                    alt="test image" />
                             </figure>
                             <p>Name</p>
                         </div>
@@ -42,7 +42,7 @@ function ExploreAside() {
                         <div>
                             <figure>
                                 <img src="https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDIvMmE3ODAzYzUtMWM5MC00ZDk4LWJmOTQtNTVjMDcxOWZmYjc5LmpwZw==.jpg"
-                                    alt="Image" />
+                                    alt="test image" />
                             </figure>
                             <p>Name</p>
                         </div>
@@ -51,7 +51,7 @@ function ExploreAside() {
                         <div>
                             <figure>
                                 <img src="https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDIvMmE3ODAzYzUtMWM5MC00ZDk4LWJmOTQtNTVjMDcxOWZmYjc5LmpwZw==.jpg"
-                                    alt="Image" />
+                                    alt="test image" />
                             </figure>
                             <p>Name</p>
                         </div>
@@ -60,7 +60,7 @@ function ExploreAside() {
                         <div>
                             <figure>
                                 <img src="https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDIvMmE3ODAzYzUtMWM5MC00ZDk4LWJmOTQtNTVjMDcxOWZmYjc5LmpwZw==.jpg"
-                                    alt="Image" />
+                                    alt="test image" />
                             </figure>
                             <p>Name</p>
                         </div>

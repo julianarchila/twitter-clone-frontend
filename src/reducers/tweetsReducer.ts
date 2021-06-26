@@ -37,6 +37,13 @@ const tweetsReducer = (state: TweetState = initialState, action: Action) => {
         isLoading: false,
         error: payload,
       };
+    case "remove_tweet":
+      return {
+        ...state,
+        isLoading: false,
+        error: "",
+        items: state.items.filter((i) => i.id !== payload)
+      }
     default:
       return state;
   }
