@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     padding: 7px 0;
-    color: #f9f9f9;
+    color: rgb(215, 215, 215);
     font-size: 1.2rem;
     letter-spacing: 1px;
     border-radius: 100px;
@@ -28,7 +28,15 @@
     color: rgb(0, 123, 255);
     font-weight: 400;
     background: rgba(0, 123, 255, 0.1);
-    /* margin-bottom: 20px; */
+}
+.header__list-item:focus {
+    background: none;
+}
+.header__list-item:active {
+    box-shadow: none;
+}
+.header__list-icon {
+    display: flex;
 }
 .header__profile {
     width: 50px;
@@ -45,6 +53,7 @@
 }
 .button-logout {
     width: 50px;
+    height: 50px;
     background-color: rgb(0, 123, 255);
     color: #f9f9f9;
     border-radius: 100%;
@@ -55,4 +64,22 @@
 .button-logout:focus, .button-logout:hover {
     outline: none;
     box-shadow: 0 0 20px #38444d;
+}
+
+@media (max-width: 1200px){
+    .header {
+        flex: none;
+    }
+    .header__list-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+    }
+    .header__list-text {
+        display: none;
+    }
+    .header__logout {
+        flex-direction: column-reverse;
+        height: 130px;
+    }
 }

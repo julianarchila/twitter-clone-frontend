@@ -54,10 +54,27 @@
   background-color: rgba(0, 123, 255, 0.8);
 }
 
-.profile-edit__buttons{
+.profile-edit__buttons {
   width: 100%;
   display: flex;
 }
 .button-modal {
+  height: 39px;
   flex: 1;
+  color: #f9f9f9;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  transition: 255ms all;
+}
+.button-modal:first-child {
+  background-color: rgb(0, 200, 50);
+  margin-right: 5px;
+}
+.button-modal:last-child {
+  background-color: rgb(249, 50, 50);
+}
+.button-modal:hover {
+  background-color: rgba(249, 249, 249, 0.1);
 }

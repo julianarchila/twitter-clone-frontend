@@ -32,6 +32,9 @@ const TweetMenu: React.FC<Props> = (props) => {
         document.body.removeChild(aux);
         setOpen(false);
     }
+    const handleReport = () => {
+        setOpen(false);
+    }
 
     if (!isOpen){
         return null;
@@ -41,7 +44,7 @@ const TweetMenu: React.FC<Props> = (props) => {
             <div className="tweet-menu__item" onClick={handleCopy}><FaCopy className="icon"/>Copy</div>
             {tweet.user.username === auth.user.username
                 ? <div className="tweet-menu__item" onClick={ handleRemove }><FaTrash className="icon"/>Delete</div>
-                : <div className="tweet-menu__item"><FaFlag className="icon"/>Report</div>
+                : <div className="tweet-menu__item" onClick={handleReport}><FaFlag className="icon"/>Report</div>
             }
         </div>
     )

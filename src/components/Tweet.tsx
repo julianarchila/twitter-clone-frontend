@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BsChatSquare, BsHeart, BsHeartFill } from "react-icons/bs";
 import { FaRetweet } from "react-icons/fa";
+import { AiOutlineRetweet } from 'react-icons/ai'
 import { getApiUrl, post } from "../services/config";
 import ParentTweet from "./ParentTweet";
 import RetweetModal from "./RetweetModal";
@@ -76,7 +77,7 @@ const Tweet: React.FC<Props> = (props) => {
           className="tweet__actions-item"
         >
           <div className="tweet__retweet-icon">
-            <FaRetweet className="icon"/>
+            <AiOutlineRetweet className="icon"/>
             <small className="tweet__retweet-count">{tweet.retweets}</small>
           </div>
         </div>

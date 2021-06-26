@@ -81,8 +81,8 @@ const ProfileEditModal: React.FC<Props> = (props) => {
           </div>
         </form>
         <div className="profile-edit__buttons">
-            <button className="button-modal btn btn-primary">Update</button>
-            <button className="button-modal btn btn-warning" type="button" onClick={handleCancel}>Cancel</button>
+            <button className="button-modal">Update</button>
+            <button className="button-modal" type="button" onClick={handleCancel}>Cancel</button>
           </div>
       </div>
     </Modal>
