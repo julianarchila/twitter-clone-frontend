@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { BsChatSquare, BsHeart, BsHeartFill } from "react-icons/bs";
 import { FaRetweet } from "react-icons/fa";
+import { AiOutlineRetweet } from 'react-icons/ai'
 import { getApiUrl, post } from "../services/config";
 import ParentTweet from "./ParentTweet";
 import RetweetModal from "./RetweetModal";
+import TweetMenu from "./TweetMenu";
 import { Link } from "react-router-dom";
 
 const defaultProfilePic =
@@ -15,6 +17,7 @@ interface Props {
 const Tweet: React.FC<Props> = (props) => {
   const [tweet, setTweet] = useState(props.tweet);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const handleLike = async () => {
     const response = await post(getApiUrl("tweets/like/"), {
       tweet: tweet.id,
@@ -29,16 +32,30 @@ const Tweet: React.FC<Props> = (props) => {
         onClose={() => setIsModalOpen(false)}
         tweet={tweet}
       />
-      <Link to={`/${tweet.user.username}`} className="tweet__author">
-        <img
-          src={tweet.user.profile.picture || defaultProfilePic}
-          alt="profile-pic"
-          className="tweet__author-pic"
-        />
-        <span className="tweet__author-name">
-          {tweet.user.username}
-        </span>
-      </Link>
+      <div className="tweet__author-container">
+        <Link to={`/${tweet.user.username}`} className="tweet__author">
+          <img
+            src={tweet.user.profile.picture || defaultProfilePic}
+            alt="profile-pic"
+            className="tweet__author-pic"
+          />
+          <span className="tweet__author-name">
+            {tweet.user.username}
+          </span>
+        </Link>
+        <div className="tweet-menu">
+            <div className="tweet-menu__pointers" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <div className="tweet-menu__point"></div>
+                <div className="tweet-menu__point"></div>
+                <div className="tweet-menu__point"></div>
+            </div>
+            <TweetMenu
+              tweet={tweet}
+              isOpen={isMenuOpen}
+              setOpen={setIsMenuOpen}
+            />
+        </div>
+      </div>
       <div className="tweet__content">{tweet.content}</div>
 
       {tweet.parent ? (
@@ -60,7 +77,7 @@ const Tweet: React.FC<Props> = (props) => {
           className="tweet__actions-item"
         >
           <div className="tweet__retweet-icon">
-            <FaRetweet className="icon"/>
+            <AiOutlineRetweet className="icon"/>
             <small className="tweet__retweet-count">{tweet.retweets}</small>
           </div>
         </div>

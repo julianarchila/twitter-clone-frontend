@@ -33,8 +33,11 @@
   justify-content: space-between;
 }
 .profile__user-picture {
-  width: 20%;
-  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+  border-radius: 250px;
+  margin-left: 8px;
 }
 
 .profile__head__actions {

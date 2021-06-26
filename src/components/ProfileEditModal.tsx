@@ -1,5 +1,6 @@
 import React, { FormEvent } from "react";
 import Modal from "../utilities/Modal";
+import Loading from './Loading';
 import { useAppSelector } from "../utilities/typedReduxHooks";
 import "../styles/ProfileEditModal.css";
 import { useState } from "react";
@@ -49,36 +50,40 @@ const ProfileEditModal: React.FC<Props> = (props) => {
   };
 
   if (auth.isLoading || !user) {
-    return <p>Loading</p>;
+    return <Loading />;
   }
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="profile-edit">
         <form action="" onSubmit={handleSubtmit}>
-          <div className="profile-edit__picture">
-            <p>Current profile picture</p>
-            <img
-              src={
-                picture
-                  ? URL.createObjectURL(picture)
-                  : user.profile.picture || defaultProfilePic
-              }
-              alt="profile-pic"
-              className="tweet__author-pic"
+          <div className="profile-edit__container">
+            <div className="profile-edit__picture">
+              <img
+                src={
+                  picture
+                    ? URL.createObjectURL(picture)
+                    : user.profile.picture || defaultProfilePic
+                }
+                alt="profile-pic"
+                className="profile-edit__author-pic"
+              />
+              <span className="profile-edit__span">Current profile picture</span>
+            </div>
+            <div>
+              <label htmlFor="profile-edit__select-picture" className="profile-edit__select-label">Profile Picture</label>
+              <input
+                type="file"
+                id="profile-edit__select-picture"
+                name="picture"
+                onChange={(e) => setPicture(e.target.files![0])}
             />
-            <input
-              type="file"
-              name="picture"
-              onChange={(e) => setPicture(e.target.files![0])}
-            />
-          </div>
-          <div className="profile-edit__buttons">
-            <button className="btn btn-primary">Update</button>
+            </div>
           </div>
         </form>
-        <button className="btn btn-warning" onClick={handleCancel}>
-          Cancel
-        </button>
+        <div className="profile-edit__buttons">
+            <button className="button-modal">Update</button>
+            <button className="button-modal" type="button" onClick={handleCancel}>Cancel</button>
+          </div>
       </div>
     </Modal>
   );

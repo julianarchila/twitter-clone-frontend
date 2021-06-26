@@ -3,7 +3,9 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logout } from "../actions/authActions";
 import { useAppSelector } from "../utilities/typedReduxHooks";
-import { BsPower } from 'react-icons/bs';
+import { BsPower, BsHouseFill, BsPersonFill } from 'react-icons/bs';
+import { FaCompass, FaFacebookMessenger } from 'react-icons/fa';
+import { MdEmail, MdMore } from 'react-icons/md'
 
 const defaultProfilePic =
   "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
@@ -23,22 +25,28 @@ function Header() {
 
       <ul className="header__list">
         <Link to="/" className="header__list-item">
-          <li>Home</li>
+          <li className="header__list-icon" ><BsHouseFill className="icon"/></li>
+          <li className="header__list-text">Home</li>
         </Link>
         <Link to="#" className="header__list-item">
-          <li>Explore</li>
+          <li className="header__list-icon" ><FaCompass className="icon"/></li>
+          <li className="header__list-text">Explore</li>
         </Link>
         <Link to="#" className="header__list-item">
-          <li>Notifications</li>
+          <li className="header__list-icon" ><MdEmail className="icon"/></li>
+          <li className="header__list-text">Notifications</li>
         </Link>
         <Link to="#" className="header__list-item">
-          <li>Messages</li>
+          <li className="header__list-icon" ><FaFacebookMessenger className="icon"/></li>
+          <li className="header__list-text">Messages</li>
         </Link>
         <Link to={`/${auth.user ? auth.user.username : null}`} className="header__list-item">
-          <li>Profile</li>
+          <li className="header__list-icon" ><BsPersonFill className="icon"/></li>
+          <li className="header__list-text">Profile</li>
         </Link>
         <Link to="#" className="header__list-item">
-          <li>More</li>
+          <li className="header__list-icon" ><MdMore className="icon"/></li>
+          <li className="header__list-text">More</li>
         </Link>
       </ul>
 
@@ -50,15 +58,13 @@ function Header() {
           )}
 
         {auth.user && (
-          <div className="header__profile">
-            <Link to={`/${auth.user.username}`}>
+            <Link to={`/${auth.user.username}`} className="header__profile">
               <img
                 src={auth.user.profile.picture || defaultProfilePic}
                 alt="profile-pic"
                 className="tweet__author-pic"
               />
             </Link>
-          </div>
         )}
       </div>
 

@@ -1,0 +1,21 @@
+.loading {
+    width: 60px;
+    margin: 70px auto;
+    display: flex;
+}
+.loading-item {
+    width: 15px;
+    height: 15px;
+    margin: 3px;
+    background-color: #008cbc;
+    border-radius: 1px;
+    animation: pulse 0.3s ease-in infinite alternate;
+}
+.loading-item2, .loading-item3 {
+    animation-delay: 0.3s;
+}
+@keyframes pulse{
+    100%{
+        opacity: 0;
+    }
+}

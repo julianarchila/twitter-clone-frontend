@@ -1,12 +1,11 @@
 .app {
+  width: 97%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  color: white;
+  justify-content: center;
+  color: #f9f9f9;
   height: 100vh;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 20px;
 }
 
 .button {
@@ -16,13 +15,24 @@
   border-radius: 100px;
   color: #f9f9f9;
   background: rgb(0, 123, 255);
-  font-weight: bold;
   transition: 255ms all;
 }
 .button:focus, .button:hover {
   outline: none;
   box-shadow: 0 0 20px #38444d;
 }
+.button:focus {
+  box-shadow: 0 0 20px rgb(0, 123, 255);
+}
 .icon {
-  margin: 5px;
+  margin: 8px;
+}
+.scroll::-webkit-scrollbar {
+  width: 10px;
+  height: 100%;
+  background: transparent;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
 }

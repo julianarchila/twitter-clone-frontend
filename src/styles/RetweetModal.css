@@ -4,7 +4,8 @@
 }
 .modal__user-pic {
   width: 50px;
-  border-radius: 100%;
+  height: 50px;
+  border-radius: 100px;
 }
 .retweetModal-left {
   padding: 5px;

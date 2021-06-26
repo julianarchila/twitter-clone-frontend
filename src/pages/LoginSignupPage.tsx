@@ -3,7 +3,7 @@ import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 
-import '../styles/app/login-signup.css';
+import '../styles/login-signup.css';
 
 interface Props {
   match: any;

@@ -1,16 +1,17 @@
 .auth {
     width: 50%;
-    min-height: 300px;
+    min-height: 400px;
     background: rgba(0, 0, 0, 0.1);
     padding: 2rem 1.3rem;
     border-radius: 4px;
     box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .signup-form {
-    height: 300px;
+    width: 45%;
+    height: 350px;
     padding: 10px;
     overflow-y: scroll;
 }
@@ -45,7 +46,7 @@
     display: flex;
     justify-content: center;
 }
-@media (max-width: 700px){
+@media (max-width: 800px){
     .auth {
       width: 100%;
       display: flex;
