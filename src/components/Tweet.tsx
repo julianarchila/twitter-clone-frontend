@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BsChatSquare, BsHeart, BsHeartFill } from "react-icons/bs";
-import { FaRetweet } from "react-icons/fa";
-import { AiOutlineRetweet } from 'react-icons/ai'
+import { AiOutlineRetweet } from "react-icons/ai";
 import { getApiUrl, post } from "../services/config";
 import ParentTweet from "./ParentTweet";
 import RetweetModal from "./RetweetModal";
@@ -39,21 +38,22 @@ const Tweet: React.FC<Props> = (props) => {
             alt="profile-pic"
             className="tweet__author-pic"
           />
-          <span className="tweet__author-name">
-            {tweet.user.username}
-          </span>
+          <span className="tweet__author-name">{tweet.user.username}</span>
         </Link>
         <div className="tweet-menu">
-            <div className="tweet-menu__pointers" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                <div className="tweet-menu__point"></div>
-                <div className="tweet-menu__point"></div>
-                <div className="tweet-menu__point"></div>
-            </div>
-            <TweetMenu
-              tweet={tweet}
-              isOpen={isMenuOpen}
-              setOpen={setIsMenuOpen}
-            />
+          <div
+            className="tweet-menu__pointers"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <div className="tweet-menu__point"></div>
+            <div className="tweet-menu__point"></div>
+            <div className="tweet-menu__point"></div>
+          </div>
+          <TweetMenu
+            tweet={tweet}
+            isOpen={isMenuOpen}
+            setOpen={setIsMenuOpen}
+          />
         </div>
       </div>
       <div className="tweet__content">{tweet.content}</div>
@@ -67,7 +67,7 @@ const Tweet: React.FC<Props> = (props) => {
       <div className="tweet__actions">
         <div className="tweet__actions-item">
           <div className="tweet__comment-icon">
-            <BsChatSquare className="icon"/>
+            <BsChatSquare className="icon" />
             <small className="tweet__comments-count">0</small>
           </div>
         </div>
@@ -77,17 +77,18 @@ const Tweet: React.FC<Props> = (props) => {
           className="tweet__actions-item"
         >
           <div className="tweet__retweet-icon">
-            <AiOutlineRetweet className="icon"/>
+            <AiOutlineRetweet className="icon" />
             <small className="tweet__retweet-count">{tweet.retweets}</small>
           </div>
         </div>
 
-        <div
-          onClick={handleLike}
-          className="tweet__actions-item"
-        >
+        <div onClick={handleLike} className="tweet__actions-item">
           <div className="tweet__like-icon">
-            {tweet.liked ? <BsHeartFill color="rgb(249, 50, 50)" className="icon"/> : <BsHeart className="icon"/>}
+            {tweet.liked ? (
+              <BsHeartFill color="rgb(249, 50, 50)" className="icon" />
+            ) : (
+              <BsHeart className="icon" />
+            )}
             <small className="tweet__like-count">{tweet.likes}</small>
           </div>
         </div>
