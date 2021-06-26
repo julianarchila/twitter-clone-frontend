@@ -46,7 +46,7 @@
 
 .profile__head__info {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   padding: 4px 15px;
 }
 

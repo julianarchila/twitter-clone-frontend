@@ -24,7 +24,7 @@
     padding-left: 20px;
 }
 
-.tweetForm__input {
+.tweet-form__input {
     background-color: #15202b;
     width: 100%;
     height: 130px;
@@ -33,10 +33,10 @@
     border-radius: 4px;
     font-size: 18px;
 }
-.tweetForm__input:focus {
+.tweet-form__input:focus {
     outline: 1px solid rgb(0, 123, 255);
 }
-.tweetForm__input::placeholder {
+.tweet-form__input::placeholder {
     font-weight: bold;
     letter-spacing: 1px;
 }

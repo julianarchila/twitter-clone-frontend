@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 40px 40px 0 0;
+    transition: 1s all;
 }
 .header__list-item {
     cursor: pointer;
@@ -64,22 +65,4 @@
 .button-logout:focus, .button-logout:hover {
     outline: none;
     box-shadow: 0 0 20px #38444d;
-}
-
-@media (max-width: 1200px){
-    .header {
-        flex: none;
-    }
-    .header__list-item {
-        width: 50px;
-        height: 50px;
-        border-radius: 100px;
-    }
-    .header__list-text {
-        display: none;
-    }
-    .header__logout {
-        flex-direction: column-reverse;
-        height: 130px;
-    }
 }

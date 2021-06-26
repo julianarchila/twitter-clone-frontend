@@ -1,0 +1,48 @@
+@media (max-width: 1300px){
+    .header {
+        flex: none;
+    }
+    .header__list-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+    }
+    .header__list-text {
+        display: none;
+    }
+    .header__logout {
+        flex-direction: column-reverse;
+        margin-bottom: 20px;
+    }
+    .button-logout {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1100px){
+    .home__title {
+        border: none;
+    }
+    .tweet-form {
+        display: none;
+    }
+    .explore-aside {
+        display: none;
+    }
+}
+
+@media (max-width: 700px){
+    .app {
+        padding: 0;
+    }
+    .home__page {
+        overflow: hidden;
+    }
+    .header {
+        transform: translateX(-200px);
+        position: absolute;
+    }
+    .tweet {
+        padding: 20px 2px;
+    }
+}

@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import '../styles/app/home.css';
 import '../styles/app/header.css';
 import '../styles/app/explore.css';
+import '../styles/app/media-query.css';
 
 const Home = () => {
   const state = useAppSelector((state) => state.tweets);

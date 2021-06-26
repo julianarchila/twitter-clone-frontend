@@ -24,7 +24,7 @@ const ProfileEditModal: React.FC<Props> = (props) => {
   const user = auth.user ? auth.user : null;
   const [picture, setPicture] = useState<any>(null);
 
-  const handleSubtmit = async (e: FormEvent) => {
+  const handleClick = async (e: FormEvent) => {
     e.preventDefault();
     const form = new FormData();
     form.append("picture", picture);
@@ -55,7 +55,7 @@ const ProfileEditModal: React.FC<Props> = (props) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="profile-edit">
-        <form action="" onSubmit={handleSubtmit}>
+        <form action="">
           <div className="profile-edit__container">
             <div className="profile-edit__picture">
               <img
@@ -81,7 +81,7 @@ const ProfileEditModal: React.FC<Props> = (props) => {
           </div>
         </form>
         <div className="profile-edit__buttons">
-            <button className="button-modal">Update</button>
+            <button className="button-modal" onClick={handleClick}>Update</button>
             <button className="button-modal" type="button" onClick={handleCancel}>Cancel</button>
           </div>
       </div>
