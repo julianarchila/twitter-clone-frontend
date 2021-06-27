@@ -33,10 +33,16 @@
 
 @media (max-width: 700px){
     .Modal__container {
-        min-width: none;
+        min-width: 0;
         width: 100%;
         height: 100%;
-        border-radius: none;
+        border-radius: 0;
+    }
+    .Modal__content {
+        height: 86%;
+    }
+    .profile-edit__container {
+        flex-direction: column;
     }
     .app {
         padding: 0;
@@ -89,6 +95,13 @@
     .tweet__actions-item {
         width: 45px;
         font-size: 15px;
+    }
+    .profile__head-nav p {
+        display: none;
+    }
+    .profile__user-picture {
+        width: 100px !important;
+        height: 100px !important;
     }
 }
 

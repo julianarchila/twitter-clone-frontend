@@ -10,13 +10,23 @@
 }
 .retweetModal-top {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 50%;
   width: 100%;
-  padding: 5px;
+  padding: 15px 5px;
 }
-
+.retweetModal-top__textarea {
+  width: 100%;
+  padding: 15px;
+  margin-left: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  color: #f9f9f9;
+  border: 1px solid #38444d;
+}
+.retweetModal-top__textarea:focus {
+  outline: 1px solid rgb(0, 123, 255);
+}
+.retweetModal-top__textarea::placeholder {
+  color: #e9f9e9;
+}
 .retweetModal-bottom {
   width: 100%;
   flex: 1;

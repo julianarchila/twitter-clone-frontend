@@ -6,13 +6,13 @@
   border: 1px solid #38444d;
   height: 100%;
   max-width: 700px;
-  min-width: 500px;
+  overflow-x: hidden;
 }
 
 .profile__head-nav {
   display: flex;
   width: 100%;
-  padding: 15px 5px;
+  margin-left: 35px;
 }
 
 .profile__head {
