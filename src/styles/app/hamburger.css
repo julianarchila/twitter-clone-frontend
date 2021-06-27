@@ -1,6 +1,7 @@
 .hamburger {
     display: none;
     width: 100%;
+    z-index: 2;
 }
 .hamburger button {
     background: none;
