@@ -1,0 +1,99 @@
+@media (max-width: 1300px){
+    .header {
+        flex: none;
+        justify-content: flex-start;
+    }
+    .header__list-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+        margin: 0;
+        margin-top: 15px;
+    }
+    .header__list-text {
+        display: none;
+    }
+    .header__logout {
+        flex-direction: column-reverse;
+        margin-bottom: 20px;
+    }
+    .button-logout {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1100px){
+    .home__title {
+        border: none;
+    }
+    .explore-aside {
+        display: none;
+    }
+}
+
+@media (max-width: 700px){
+    .Modal__container {
+        min-width: none;
+        width: 100%;
+        height: 100%;
+        border-radius: none;
+    }
+    .app {
+        padding: 0;
+        font-size: 13px;
+    }
+    .home__page {
+        overflow: hidden;
+    }
+    .hamburger {
+        display: block;
+    }
+    .header {
+        transform: translateX(-200px);
+        padding: 0 20px;
+        left: 0;
+        padding-left: 50px;
+        background: rgba(0, 0, 10, 0.91);
+        position: absolute;
+    }
+    .header-transition {
+        transform: translateX(0);
+    }
+    .home__title-title {
+        display: none;
+    }
+    .feed::-webkit-scrollbar {
+        width: 0;
+        opacity: 0;
+    }
+    .tweet {
+        padding: 20px 2px;
+    }
+    .tweet__author {
+        margin-left: 5px;
+    }
+    .tweet__author-pic {
+        width: 40px;
+        height: 40px;
+        border-radius: 80px;
+    }
+    .tweet-menu__pointers {
+        width: 30px;
+        height: 30px;
+        border-radius: 60px;
+    }
+    .tweet-menu__point {
+        width: 3px;
+        height: 3px;
+    }
+    .tweet__actions-item {
+        width: 45px;
+        font-size: 15px;
+    }
+}
+
+@media (max-height: 510px){
+    .header {
+        overflow-y: scroll;
+    }
+}

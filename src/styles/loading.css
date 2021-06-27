@@ -2,6 +2,7 @@
     width: 60px;
     margin: 70px auto;
     display: flex;
+    flex-wrap: wrap;
 }
 .loading-item {
     width: 15px;

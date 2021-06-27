@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/app.css";
+import './styles/media-query.css';
 import LoginSignupPage from "./pages/LoginSignupPage";
 import PrivateRoute from "./utilities/PrivateRoute";
 import { useAppSelector } from "./utilities/typedReduxHooks";

@@ -64,8 +64,8 @@ const ProfileHead: React.FC<Props> = (props) => {
           <p>@{user.username}</p>
         </div>
         <div>
-          <small>{user.following_count} following</small> <br />
-          <small>{user.followers_count} followers</small>
+          <span>{user.following_count} following</span> <br />
+          <span>{user.followers_count} followers</span>
         </div>
       </div>
     </div>

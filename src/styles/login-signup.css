@@ -48,9 +48,12 @@
 }
 @media (max-width: 800px){
     .auth {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      box-shadow: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        box-shadow: none;
+    }
+    .signup-form {
+        width: 80%;
     }
 }

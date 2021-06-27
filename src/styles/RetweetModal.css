@@ -1,5 +1,6 @@
 .retweetModal {
   display: flex;
+  flex-direction: column;
   flex: 1;
 }
 .modal__user-pic {
@@ -7,11 +8,17 @@
   height: 50px;
   border-radius: 100px;
 }
-.retweetModal-left {
+.retweetModal-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 50%;
+  width: 100%;
   padding: 5px;
 }
 
-.retweetModal-rigth {
+.retweetModal-bottom {
+  width: 100%;
   flex: 1;
   padding: 3px 10px;
 }
