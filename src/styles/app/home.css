@@ -20,8 +20,9 @@
     transition: 1s all;
 }
 .home__title {
-    border-bottom: 1px solid #38444d;
-    padding-left: 20px;
+    display: flex;
+    width: 100%;
+    margin-left: 20px;
 }
 
 .tweet-form__input {

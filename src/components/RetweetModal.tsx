@@ -49,7 +49,7 @@ const RetweetModal: React.FC<Props> = (props) => {
             className="modal__user-pic"
           />
           <textarea
-            className="tweet-form__input"
+            className="retweetModal-top__textarea scroll"
             placeholder="Add a comment"
             name="content"
             value={formData.content}
