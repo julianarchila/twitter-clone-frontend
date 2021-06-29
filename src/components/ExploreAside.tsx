@@ -1,7 +1,29 @@
-import React from "react";
+import { AxiosError } from "axios";
+import React, { ChangeEvent } from "react";
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { get, getApiUrl } from "../services/config";
+import SearchResults from "./SearchResults";
 
-function ExploreAside() {
+const ExploreAside: React.FC = () => {
+  const [searchName, setSearchName] = useState("");
+  const [users, setUsers] = useState<any>([]);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    var newValue = e.target.value;
+    setSearchName(newValue);
+    if (newValue !== "") {
+      get(getApiUrl(`users/?search=${newValue}`))
+        .then((response) => {
+          setUsers(response.data.results);
+        })
+        .catch((err: AxiosError) => {
+          console.error(err);
+        });
+    } else {
+      setUsers([]);
+    }
+  };
   return (
     <div className="explore-aside">
       <div className="explore-aside__container-search">
@@ -9,15 +31,19 @@ function ExploreAside() {
           type="text"
           className="explore-aside__search"
           placeholder="SEARCH"
+          value={searchName}
+          onChange={handleChange}
         />
         <FaSearch className="explore-aside__search-icon" />
       </div>
 
+      <SearchResults searchName={searchName} users={users} />
+
       <div className="explore-aside__users scroll">
         <h3>Who to follow</h3>
-        {[...Array(10)].map(() => {
+        {[...Array(10)].map((x, i) => {
           return (
-            <div className="explore-aside__users-item">
+            <div key={i} className="explore-aside__users-item">
               <div>
                 <figure>
                   <img
@@ -34,6 +60,6 @@ function ExploreAside() {
       </div>
     </div>
   );
-}
+};
 
 export default ExploreAside;
