@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Loading from "../components/Loading";
 import Explore from '../components/ExploreAside';
 import ProfileHead from "../components/ProfileHead";
+import Hamburger from '../components/Hamburger';
 import { getApiUrl, get } from "../services/config";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 
@@ -57,7 +58,8 @@ function Profile(props: any) {
       <Header />
       <div className="profile">
         <div className="profile__head-nav">
-          <small>Go Back</small> ------ User's Name
+          <p><small>Go Back</small> ------ User's Name</p>
+          <Hamburger />
         </div>
         <ProfileHead user={user} setUser={setUser} auth={auth} />
 

@@ -1,5 +1,6 @@
 .retweetModal {
   display: flex;
+  flex-direction: column;
   flex: 1;
 }
 .modal__user-pic {
@@ -7,11 +8,27 @@
   height: 50px;
   border-radius: 100px;
 }
-.retweetModal-left {
-  padding: 5px;
+.retweetModal-top {
+  display: flex;
+  width: 100%;
+  padding: 15px 5px;
 }
-
-.retweetModal-rigth {
+.retweetModal-top__textarea {
+  width: 100%;
+  padding: 15px;
+  margin-left: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  color: #f9f9f9;
+  border: 1px solid #38444d;
+}
+.retweetModal-top__textarea:focus {
+  outline: 1px solid rgb(0, 123, 255);
+}
+.retweetModal-top__textarea::placeholder {
+  color: #e9f9e9;
+}
+.retweetModal-bottom {
+  width: 100%;
   flex: 1;
   padding: 3px 10px;
 }

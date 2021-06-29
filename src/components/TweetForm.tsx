@@ -21,9 +21,9 @@ function TweetForm() {
     setFormData({ content: "" });
   };
   return (
-    <form onSubmit={handleSubtmit}>
+    <form onSubmit={handleSubtmit} className="tweet-form">
       <textarea
-        className="tweetForm__input"
+        className="tweet-form__input scroll"
         placeholder="What's happening?"
         name="content"
         value={formData.content}

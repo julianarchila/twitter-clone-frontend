@@ -61,10 +61,12 @@ const ProfileHead: React.FC<Props> = (props) => {
       <div className="profile__head__info">
         <div className="font-weight-bold">
           {user.first_name} {user.last_name}
+          <p>@{user.username}</p>
         </div>
-        <p>@{user.username}</p>
-        <small>{user.following_count} following</small>
-        <small>{user.followers_count} followers</small>
+        <div>
+          <span>{user.following_count} following</span> <br />
+          <span>{user.followers_count} followers</span>
+        </div>
       </div>
     </div>
   );

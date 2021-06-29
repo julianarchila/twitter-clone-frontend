@@ -41,31 +41,28 @@ const RetweetModal: React.FC<Props> = (props) => {
 
   return (
     <Modal isOpen={isOpen} onClose={props.onClose}>
-      <div className="retweetModal">
-        <div className="retweetModal-left">
+      <form onSubmit={handleSubtmit} className="retweetModal">
+        <div className="retweetModal-top">
           <img
             src={current_user.profile.picture || defaultProfilePic}
             alt="profile-pic"
             className="modal__user-pic"
           />
+          <textarea
+            className="retweetModal-top__textarea scroll"
+            placeholder="Add a comment"
+            name="content"
+            value={formData.content}
+            onChange={handleChange}
+          />
         </div>
-        <div className="retweetModal-rigth">
-          <form onSubmit={handleSubtmit}>
-            <textarea
-              className="tweetForm__input"
-              placeholder="Add a comment"
-              name="content"
-              value={formData.content}
-              onChange={handleChange}
-            />
-
-            <div className="retweet-container">
-              <ParentTweet tweet={tweet} />
-            </div>
+        <div className="retweetModal-bottom">
+          <div className="retweet-container">
+            <ParentTweet tweet={tweet} />
             <button className="button">Tweet</button>
-          </form>
+          </div>
         </div>
-      </div>
+      </form>
     </Modal>
   );
 };
