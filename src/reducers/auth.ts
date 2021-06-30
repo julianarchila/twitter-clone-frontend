@@ -33,6 +33,7 @@ const authReducer = (state = initialState, action: Action): AuthState => {
       return {
         ...state,
         error: payload,
+        isLoading: false,
       };
 
     case "signup_request":
@@ -52,6 +53,7 @@ const authReducer = (state = initialState, action: Action): AuthState => {
       return {
         ...state,
         error: payload,
+        isLoading: false,
       };
     case "get_profile_request":
       return { ...state, isLoading: true };

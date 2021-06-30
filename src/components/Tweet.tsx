@@ -6,6 +6,7 @@ import ParentTweet from "./ParentTweet";
 import RetweetModal from "./RetweetModal";
 import TweetMenu from "./TweetMenu";
 import { Link } from "react-router-dom";
+import ActionBtn from "./ActionBtn";
 
 const defaultProfilePic =
   "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
@@ -64,34 +65,24 @@ const Tweet: React.FC<Props> = (props) => {
         </div>
       ) : null}
 
+      {/* Tweet action*/}
       <div className="tweet__actions">
-        <div className="tweet__actions-item">
-          <div className="tweet__comment-icon">
-            <BsChatSquare className="icon" />
-            <small className="tweet__comments-count">0</small>
-          </div>
-        </div>
+        {/* Comment */}
+        <ActionBtn Icon={BsChatSquare} count={0} onClick={() => null} />
 
-        <div
+        {/* Retweet */}
+        <ActionBtn
+          Icon={AiOutlineRetweet}
+          count={tweet.retweets}
           onClick={() => setIsModalOpen(true)}
-          className="tweet__actions-item"
-        >
-          <div className="tweet__retweet-icon">
-            <AiOutlineRetweet className="icon" />
-            <small className="tweet__retweet-count">{tweet.retweets}</small>
-          </div>
-        </div>
-
-        <div onClick={handleLike} className="tweet__actions-item">
-          <div className="tweet__like-icon">
-            {tweet.liked ? (
-              <BsHeartFill color="rgb(249, 50, 50)" className="icon" />
-            ) : (
-              <BsHeart className="icon" />
-            )}
-            <small className="tweet__like-count">{tweet.likes}</small>
-          </div>
-        </div>
+        />
+        {/* Like */}
+        <ActionBtn
+          Icon={tweet.liked ? BsHeartFill : BsHeart}
+          iconColor={tweet.liked ? "rgb(249,50,50)" : ""}
+          count={tweet.likes}
+          onClick={handleLike}
+        />
       </div>
     </div>
   );

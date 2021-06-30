@@ -11,12 +11,19 @@ export const getApiUrl = (path: string) => `${apiEndpointURL}/${path}`;
 
 const pullData = (request: Promise<any>) => request.then(({ data }) => data);
 
-export const get = (url: string) =>
+const defaultHeaders = () =>
+  getAccessToken()
+    ? {
+        "Content-type": "application/json",
+        Authorization: `token ${getAccessToken()}`,
+      }
+    : {
+        "Content-type": "application/json",
+      };
+
+export const get = (url: string, headers = defaultHeaders()) =>
   axios.get(url, {
-    headers: {
-      "Content-type": "application/json",
-      Authorization: `token ${getAccessToken()}`,
-    },
+    headers: headers,
   });
 
 export const post = (url: string, payload: object) =>

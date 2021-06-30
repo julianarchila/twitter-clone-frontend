@@ -18,7 +18,8 @@ interface Props {
 const RetweetModal: React.FC<Props> = (props) => {
   const { tweet, isOpen, onClose } = props;
   const dispatch = useDispatch();
-  const current_user = useAppSelector((state) => state.auth.user);
+  const auth = useAppSelector((state) => state.auth);
+  const current_user = auth.user;
 
   const [formData, setFormData] = useState({
     content: "",
@@ -38,6 +39,9 @@ const RetweetModal: React.FC<Props> = (props) => {
     setFormData({ content: "" });
     onClose();
   };
+  if (!auth.isAuthenticated) {
+    return <></>;
+  }
 
   return (
     <Modal isOpen={isOpen} onClose={props.onClose}>

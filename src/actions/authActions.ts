@@ -82,7 +82,7 @@ export const getProfile = () => {
       })
       .catch((err: AxiosError) => {
         dispatch({
-          type: authActionTypes.SIGNUP_ERROR,
+          type: authActionTypes.LOGOUT,
           payload: err.response ? err.response.data : { message: err.message },
         });
       });

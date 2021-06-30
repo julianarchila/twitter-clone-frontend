@@ -1,6 +1,6 @@
 import React, { FormEvent } from "react";
 import Modal from "../utilities/Modal";
-import Loading from './Loading';
+import Loading from "./Loading";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 import "../styles/ProfileEditModal.css";
 import { useState } from "react";
@@ -49,6 +49,10 @@ const ProfileEditModal: React.FC<Props> = (props) => {
     onClose();
   };
 
+  if (!auth.isAuthenticated) {
+    return <></>;
+  }
+
   if (auth.isLoading || !user) {
     return <Loading />;
   }
@@ -67,23 +71,34 @@ const ProfileEditModal: React.FC<Props> = (props) => {
                 alt="profile-pic"
                 className="profile-edit__author-pic"
               />
-              <span className="profile-edit__span">Current profile picture</span>
+              <span className="profile-edit__span">
+                Current profile picture
+              </span>
             </div>
             <div>
-              <label htmlFor="profile-edit__select-picture" className="profile-edit__select-label">Profile Picture</label>
+              <label
+                htmlFor="profile-edit__select-picture"
+                className="profile-edit__select-label"
+              >
+                Profile Picture
+              </label>
               <input
                 type="file"
                 id="profile-edit__select-picture"
                 name="picture"
                 onChange={(e) => setPicture(e.target.files![0])}
-            />
+              />
             </div>
           </div>
         </form>
         <div className="profile-edit__buttons">
-            <button className="button-modal" onClick={handleClick}>Update</button>
-            <button className="button-modal" type="button" onClick={handleCancel}>Cancel</button>
-          </div>
+          <button className="button-modal" onClick={handleClick}>
+            Update
+          </button>
+          <button className="button-modal" type="button" onClick={handleCancel}>
+            Cancel
+          </button>
+        </div>
       </div>
     </Modal>
   );

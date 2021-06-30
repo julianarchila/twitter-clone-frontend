@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getApiUrl, get } from "./config";
+import { getApiUrl, get, getAccessToken } from "./config";
 
 interface loginCredentials {
   email: string;
@@ -23,7 +23,10 @@ const signup = (credentials: any) => {
 };
 
 const getProfile = () => {
-  return get(getApiUrl("auth/me/"));
+  return get(getApiUrl("auth/me/"), {
+    "Content-type": "",
+    Authorization: `Token ${getAccessToken()}`,
+  });
 };
 
 const authService = {
