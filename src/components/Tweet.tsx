@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { BsChatSquare, BsHeart, BsHeartFill } from "react-icons/bs";
 import { AiOutlineRetweet } from "react-icons/ai";
 import { getApiUrl, post } from "../services/config";
-import ParentTweet from "./ParentTweet";
 import RetweetModal from "./RetweetModal";
 import TweetMenu from "./TweetMenu";
 import { Link } from "react-router-dom";
@@ -12,12 +11,39 @@ const defaultProfilePic =
   "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
 interface Props {
   tweet: any;
+  showActions?: boolean;
 }
 
 const Tweet: React.FC<Props> = (props) => {
   const [tweet, setTweet] = useState(props.tweet);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  if (!tweet) {
+    return (
+      <div className="tweet">
+        <p>This tweet has been delted.</p>
+      </div>
+    );
+  }
+  if (typeof tweet === "string") {
+    return null;
+  }
+  const showActions = () => {
+    if (props.showActions === true) {
+      return true;
+    }
+    if (props.showActions === false) {
+      return false;
+    }
+    if (tweet.content || tweet.image) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // toogle like function
   const handleLike = async () => {
     const response = await post(getApiUrl("tweets/like/"), {
       tweet: tweet.id,
@@ -59,31 +85,33 @@ const Tweet: React.FC<Props> = (props) => {
       </div>
       <div className="tweet__content">{tweet.content}</div>
 
-      {tweet.parent ? (
+      {tweet.retweet ? (
         <div className="parent-tweet-container">
-          <ParentTweet tweet={tweet.parent} />
+          <Tweet tweet={tweet.parent} showActions={!showActions()} />
         </div>
       ) : null}
 
-      {/* Tweet action*/}
-      <div className="tweet__actions">
-        {/* Comment */}
-        <ActionBtn Icon={BsChatSquare} count={0} onClick={() => null} />
+      {/* Tweet actions */}
+      {showActions() ? (
+        <div className="tweet__actions">
+          {/* Comment */}
+          <ActionBtn Icon={BsChatSquare} count={0} onClick={() => null} />
 
-        {/* Retweet */}
-        <ActionBtn
-          Icon={AiOutlineRetweet}
-          count={tweet.retweets}
-          onClick={() => setIsModalOpen(true)}
-        />
-        {/* Like */}
-        <ActionBtn
-          Icon={tweet.liked ? BsHeartFill : BsHeart}
-          iconColor={tweet.liked ? "rgb(249,50,50)" : ""}
-          count={tweet.likes}
-          onClick={handleLike}
-        />
-      </div>
+          {/* Retweet */}
+          <ActionBtn
+            Icon={AiOutlineRetweet}
+            count={tweet.retweets}
+            onClick={() => setIsModalOpen(true)}
+          />
+          {/* Like */}
+          <ActionBtn
+            Icon={tweet.liked ? BsHeartFill : BsHeart}
+            iconColor={tweet.liked ? "rgb(249,50,50)" : ""}
+            count={tweet.likes}
+            onClick={handleLike}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };

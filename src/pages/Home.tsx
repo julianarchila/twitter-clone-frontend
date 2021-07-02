@@ -3,17 +3,17 @@ import Header from "../components/Header";
 import Tweet from "../components/Tweet";
 import TweetForm from "../components/TweetForm";
 import Explore from "../components/ExploreAside";
-import Loading from '../components/Loading';
+import Loading from "../components/Loading";
 import Hamburger from "../components/Hamburger";
 import { getTweets } from "../actions/tweetActions";
 import { useEffect } from "react";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 import { useDispatch } from "react-redux";
-import { GiFeather } from 'react-icons/gi';
+import { GiFeather } from "react-icons/gi";
 
-import '../styles/app/home.css';
-import '../styles/app/header.css';
-import '../styles/app/explore.css';
+import "../styles/app/home.css";
+import "../styles/app/header.css";
+import "../styles/app/explore.css";
 
 const Home = () => {
   const [toggleSeeForm, setToggleSeeForm] = useState(false);
@@ -34,7 +34,10 @@ const Home = () => {
           </div>
           {toggleSeeForm && <TweetForm />}
         </div>
-        <i className="icon-feather" onClick={() => setToggleSeeForm(!toggleSeeForm)}>
+        <i
+          className="icon-feather"
+          onClick={() => setToggleSeeForm(!toggleSeeForm)}
+        >
           <GiFeather />
         </i>
         {state.isLoading ? (

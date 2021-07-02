@@ -37,7 +37,7 @@ const TweetMenu: React.FC<Props> = (props) => {
     setOpen(false);
   };
 
-  if (!isOpen) {
+  if (!isOpen || !auth.isAuthenticated) {
     return null;
   }
   return (
