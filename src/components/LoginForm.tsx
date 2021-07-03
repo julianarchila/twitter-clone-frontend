@@ -36,9 +36,9 @@ function LoginForm() {
             {err}
           </div>
         ))
-      ) : error.message ? (
+      ) : error.message && (
         <div className="alert alert-danger">{error.message}</div>
-      ) : null}
+      )}
 
       <div className="form-group">
         <label htmlFor="email">Email address</label>
@@ -64,7 +64,7 @@ function LoginForm() {
           value={formData.password}
           placeholder="Password"
         />
-        {error.password ? <p>{error.password}</p> : null}
+        {error.password && <p>{error.password}</p>}
       </div>
       <p>
         Don't have a account?

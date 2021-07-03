@@ -85,14 +85,14 @@ const Tweet: React.FC<Props> = (props) => {
       </div>
       <div className="tweet__content">{tweet.content}</div>
 
-      {tweet.retweet ? (
+      {tweet.retweet && (
         <div className="parent-tweet-container">
           <Tweet tweet={tweet.parent} showActions={!showActions()} />
         </div>
-      ) : null}
+      )}
 
       {/* Tweet actions */}
-      {showActions() ? (
+      {showActions() && (
         <div className="tweet__actions">
           {/* Comment */}
           <ActionBtn Icon={BsChatSquare} count={0} onClick={() => null} />
@@ -111,7 +111,7 @@ const Tweet: React.FC<Props> = (props) => {
             onClick={handleLike}
           />
         </div>
-      ) : null}
+      )}
     </div>
   );
 };

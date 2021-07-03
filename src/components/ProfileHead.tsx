@@ -42,7 +42,7 @@ const ProfileHead: React.FC<Props> = (props) => {
           alt="profile"
         />
         <div className="profile__head__actions">
-          {auth.isAuthenticated ? (
+          {auth.isAuthenticated && (
             auth.user.username === user.username ? (
               <button
                 onClick={() => setIsModalOpen(true)}
@@ -55,7 +55,7 @@ const ProfileHead: React.FC<Props> = (props) => {
                 {user.following ? "Unfollow" : "Follow"}
               </button>
             )
-          ) : null}
+          )}
         </div>
       </div>
       <div className="profile__head__info">
