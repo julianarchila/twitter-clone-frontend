@@ -37,26 +37,28 @@ const ExploreAside: React.FC = () => {
         <FaSearch className="explore-aside__search-icon" />
       </div>
 
-      <SearchResults searchName={searchName} users={users} />
-
-      <div className="explore-aside__users scroll">
+      <div className="scroll">
         <h3>Who to follow</h3>
-        {[...Array(10)].map((x, i) => {
-          return (
-            <div key={i} className="explore-aside__users-item">
-              <div>
-                <figure>
-                  <img
-                    src="https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjEtMDIvMmE3ODAzYzUtMWM5MC00ZDk4LWJmOTQtNTVjMDcxOWZmYjc5LmpwZw==.jpg"
-                    alt="test"
-                  />
-                </figure>
-                <p>Name</p>
-              </div>
-              <button className="button">Follow</button>
+        {searchName === "" ?
+            <div className="explore-aside__users scroll"></div>
+        :
+          users.length < 1 ?
+            <div className="explore-aside__users scroll">
+              <h3>@{searchName}</h3>
+              <p>No match found</p>
             </div>
-          );
-        })}
+          :
+            <>
+              <h3>@{searchName}</h3>
+              <div className="explore-aside__users scroll">
+                {users.map((user: any, i: number) => {
+                  return(
+                    <SearchResults key={i} user={user} />
+                  )
+                })}
+              </div>
+            </>
+        }
       </div>
     </div>
   );
