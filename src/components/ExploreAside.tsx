@@ -30,6 +30,7 @@ const ExploreAside: React.FC = () => {
         <input
           type="text"
           className="explore-aside__search"
+          id="explore"
           placeholder="SEARCH"
           value={searchName}
           onChange={handleChange}
@@ -38,13 +39,14 @@ const ExploreAside: React.FC = () => {
       </div>
 
       <div className="scroll">
-        <h3>Who to follow</h3>
         {searchName === "" ?
-            <div className="explore-aside__users scroll"></div>
+          <div className="explore-aside__users scroll">
+            <label htmlFor="explore">Who to follow ?</label>
+          </div>
         :
           users.length < 1 ?
             <div className="explore-aside__users scroll">
-              <h3>@{searchName}</h3>
+              <h4>@{searchName}</h4>
               <p>No match found</p>
             </div>
           :

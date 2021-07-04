@@ -15,6 +15,22 @@
   margin-left: 35px;
 }
 
+.profile__head-back {
+  padding: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+.profile__head-back i {
+  padding: 5px 20px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 255ms all;
+}
+.profile__head-back i:hover{
+  color: rgb(0, 123, 255);
+}
+
 .profile__head {
   display: flex;
   flex-wrap: wrap;

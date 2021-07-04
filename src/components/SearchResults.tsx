@@ -10,12 +10,11 @@ const SearchResults: React.FC<Props> = (props) => {
   const { user } = props;
   const [userFollow, setUserFollow] = useState(user.following);
 
-  const handleFollow = async () => {
-    const response = await post(getApiUrl("users/follow_toogle/"), {
+  const handleFollow = () => {
+    post(getApiUrl("users/follow_toogle/"), {
       user: user.username,
     });
-    const data = response.data;
-    setUserFollow(data.following)
+    setUserFollow(!userFollow)
   };
   return (
         <div className="explore-aside__users-item">

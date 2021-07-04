@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import Explore from "../components/ExploreAside";
 import ProfileHead from "../components/ProfileHead";
 import Hamburger from "../components/Hamburger";
+import { FaArrowCircleLeft } from "react-icons/fa"
 import { getApiUrl, get } from "../services/config";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 
@@ -58,9 +59,14 @@ function Profile(props: any) {
       <Header />
       <div className="profile">
         <div className="profile__head-nav">
-          <p>
-            <small>Go Back</small> ------ User's Name
-          </p>
+          <div className="profile__head-back">
+            <i onClick={()=> window.history.go(-1)}>
+              <FaArrowCircleLeft />
+            </i>
+            <strong>
+              {user.first_name}
+            </strong>
+          </div>
           <Hamburger />
         </div>
         <ProfileHead user={user} setUser={setUser} auth={auth} />
