@@ -21,18 +21,21 @@
   outline: none;
   box-shadow: 0 0 20px #38444d;
 }
-.button:focus {
+.button:active {
   box-shadow: 0 0 20px rgb(0, 123, 255);
 }
 .icon {
   margin: 8px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background: transparent;
 }
 .scroll::-webkit-scrollbar {
   width: 10px;
   height: 100%;
   background: transparent;
 }
-.scroll::-webkit-scrollbar-thumb {
+.scroll:hover::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 50px;
 }

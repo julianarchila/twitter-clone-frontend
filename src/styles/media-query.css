@@ -45,6 +45,9 @@
     .profile-edit__container {
         flex-direction: column;
     }
+    .profile__head-back {
+        display: none !important;
+    }
     .app {
         padding: 0;
         font-size: 13px;

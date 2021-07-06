@@ -1,43 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
+import { getApiUrl, post } from "../services/config";
 import { Link } from "react-router-dom";
 
 interface Props {
-  users: Array<any>;
-  searchName: String;
+  user: any;
 }
 
 const SearchResults: React.FC<Props> = (props) => {
-  const { searchName, users } = props;
-  if (searchName === "") {
-    return <div className="explore-aside__users scroll"></div>;
-  }
-  if (users.length < 1) {
-    return (
-      <div className="explore-aside__users scroll">
-        <h3>@{searchName}</h3>
-        <p>No match found</p>
-      </div>
-    );
-  }
+  const { user } = props;
+  const [userFollow, setUserFollow] = useState(user.following);
+
+  const handleFollow = () => {
+    post(getApiUrl("users/follow_toogle/"), {
+      user: user.username,
+    });
+    setUserFollow(!userFollow)
+  };
   return (
-    <div className="explore-aside__users scroll">
-      <h3>@{searchName}</h3>
-      {users.map((user: any, i: number) => {
-        return (
-          <div key={i} className="explore-aside__users-item">
-            <Link to={`/${user.username}`}>
-              <div>
-                <figure>
-                  <img src={user.profile.picture} alt={user.username} />
-                </figure>
-                <p>{user.username}</p>
-              </div>
-            </Link>
-            <button className="button">Follow</button>
-          </div>
-        );
-      })}
-    </div>
+        <div className="explore-aside__users-item">
+          <Link to={`/${user.username}`} className="explore-aside__users-item-auth">
+              <figure>
+                <img src={user.profile.picture} alt={user.username} />
+              </figure>
+              <p>{user.username}</p>
+          </Link>
+          <button className="button" onClick={handleFollow}>
+            {userFollow ? "Unfollow" : "Follow"}
+          </button>
+        </div>
   );
 };
 

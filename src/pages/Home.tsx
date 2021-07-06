@@ -42,9 +42,9 @@ const Home = () => {
         </i>
         {state.isLoading ? (
           <Loading />
-        ) : state.error ? (
+        ) : state.error && (
           <p>{state.error}</p>
-        ) : null}
+        )}
 
         <div className="feed scroll">
           {state.items.map((tweet: any) => {

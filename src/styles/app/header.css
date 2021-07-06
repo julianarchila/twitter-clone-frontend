@@ -7,6 +7,8 @@
     padding: 40px 40px 0 0;
     z-index: 1;
     transition: .6s ease-in-out;
+    overflow-y: scroll;
+    padding: 0 5px;
 }
 .header__list-item {
     cursor: pointer;

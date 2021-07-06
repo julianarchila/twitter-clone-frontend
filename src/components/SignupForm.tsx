@@ -39,9 +39,9 @@ function SignupForm() {
             {err}
           </div>
         ))
-      ) : error.message ? (
+      ) : error.message && (
         <div className="alert alert-danger">{error.message}</div>
-      ) : null}
+      )}
       <div className="form-group">
         <label htmlFor="email">Email address</label>
         <input
@@ -55,7 +55,7 @@ function SignupForm() {
           value={formData.email}
           required={true}
         />
-        {error.email ? <p>{error.email}</p> : null}
+        {error.email && <p>{error.email}</p>}
       </div>
 
       <div className="form-group">
@@ -70,7 +70,7 @@ function SignupForm() {
           value={formData.username}
           required={true}
         />
-        {error.username ? <p>{error.username}</p> : null}
+        {error.username && <p>{error.username}</p>}
       </div>
 
       <div className="form-group">
@@ -113,7 +113,7 @@ function SignupForm() {
           value={formData.password}
           required={true}
         />
-        {error.password ? <p>{error.password}</p> : null}
+        {error.password && <p>{error.password}</p>}
       </div>
 
       <div className="form-group">

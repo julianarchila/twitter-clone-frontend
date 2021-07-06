@@ -28,7 +28,7 @@ function Header() {
   };
   if (!auth.isAuthenticated) {
     return (
-      <div className="header">
+      <div className="header scroll">
         <div className="header__list">
           <Link to="#" className="header__list-item">
             <li className="header__list-icon">
@@ -48,7 +48,7 @@ function Header() {
   }
 
   return (
-    <div className="header">
+    <div className="header scroll">
       <ul className="header__list">
         <Link to="/" className="header__list-item">
           <li className="header__list-icon">

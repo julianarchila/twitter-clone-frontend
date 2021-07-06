@@ -21,7 +21,7 @@ const ProfileEditModal: React.FC<Props> = (props) => {
   const { isOpen, onClose } = props;
   const auth = useAppSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const user = auth.user ? auth.user : null;
+  const user = auth.user && auth.user;
   const [picture, setPicture] = useState<any>(null);
 
   const handleClick = async (e: FormEvent) => {
