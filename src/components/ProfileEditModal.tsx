@@ -10,8 +10,6 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getProfile } from "../actions/authActions";
 
-const defaultProfilePic =
-  "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
 interface Props {
   isOpen: boolean;
   onClose: () => any;
@@ -22,12 +20,20 @@ const ProfileEditModal: React.FC<Props> = (props) => {
   const auth = useAppSelector((state) => state.auth);
   const dispatch = useDispatch();
   const user = auth.user && auth.user;
+  const [bio, setBio] = useState(user ? user.profile.bio : "");
   const [picture, setPicture] = useState<any>(null);
+  const [header, setHeader] = useState<any>(null);
 
   const handleClick = async (e: FormEvent) => {
     e.preventDefault();
     const form = new FormData();
-    form.append("picture", picture);
+    if (picture !== null) {
+      form.append("picture", picture);
+    }
+    if (header !== null) {
+      form.append("header", header);
+    }
+    form.append("bio", bio);
     axios
       .patch(getApiUrl("users/profile/"), form, {
         headers: {
@@ -46,6 +52,8 @@ const ProfileEditModal: React.FC<Props> = (props) => {
   };
   const handleCancel = () => {
     setPicture(null);
+    setHeader(null);
+    setBio("");
     onClose();
   };
 
@@ -59,28 +67,22 @@ const ProfileEditModal: React.FC<Props> = (props) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="profile-edit">
-        <form action="">
-          <div className="profile-edit__container">
-            <div className="profile-edit__picture">
-              <img
-                src={
-                  picture
-                    ? URL.createObjectURL(picture)
-                    : user.profile.picture || defaultProfilePic
-                }
-                alt="profile-pic"
-                className="profile-edit__author-pic"
-              />
-              <span className="profile-edit__span">
-                Current profile picture
-              </span>
-            </div>
+        <div className="profile-edit__container">
+          <div className="profile-edit__picture">
+            <img
+              src={
+                picture ? URL.createObjectURL(picture) : user.profile.picture
+              }
+              alt="profile-pic"
+              className="profile-edit__author-pic"
+            />
+            <span className="profile-edit__span">Current profile picture</span>
             <div>
               <label
                 htmlFor="profile-edit__select-picture"
                 className="profile-edit__select-label"
               >
-                Profile Picture
+                Select image
               </label>
               <input
                 type="file"
@@ -90,7 +92,39 @@ const ProfileEditModal: React.FC<Props> = (props) => {
               />
             </div>
           </div>
-        </form>
+          <div className="profile-edit__header">
+            <img
+              src={header ? URL.createObjectURL(header) : user.profile.header}
+              alt="profile-pic"
+              className="profile-edit__author-pic"
+            />
+            <span className="profile-edit__span">Current profile header</span>
+            <div>
+              <label
+                htmlFor="profile-edit__select-header"
+                className="profile-edit__select-label"
+              >
+                Select image
+              </label>
+              <input
+                type="file"
+                id="profile-edit__select-header"
+                name="header"
+                onChange={(e) => setHeader(e.target.files![0])}
+              />
+            </div>
+          </div>
+          <div className="profile-edit__bio">
+            <span className="profile-edit__span">Describe yourself</span>
+            <input
+              className="form-control"
+              type="text"
+              name="bio"
+              value={bio}
+              onChange={(e) => setBio(e.target.value)}
+            />
+          </div>
+        </div>
         <div className="profile-edit__buttons">
           <button className="button-modal" onClick={handleClick}>
             Update

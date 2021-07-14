@@ -7,8 +7,6 @@ import TweetMenu from "./TweetMenu";
 import { Link } from "react-router-dom";
 import ActionBtn from "./ActionBtn";
 
-const defaultProfilePic =
-  "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
 interface Props {
   tweet: any;
   showActions?: boolean;
@@ -61,7 +59,7 @@ const Tweet: React.FC<Props> = (props) => {
       <div className="tweet__author-container">
         <Link to={`/${tweet.user.username}`} className="tweet__author">
           <img
-            src={tweet.user.profile.picture || defaultProfilePic}
+            src={tweet.user.profile.picture}
             alt="profile-pic"
             className="tweet__author-pic"
           />

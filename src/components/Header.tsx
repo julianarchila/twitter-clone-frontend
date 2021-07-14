@@ -12,9 +12,6 @@ import {
 import { FaCompass, FaFacebookMessenger } from "react-icons/fa";
 import { MdEmail, MdMore } from "react-icons/md";
 
-const defaultProfilePic =
-  "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
-
 function Header() {
   const auth = useAppSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -101,7 +98,7 @@ function Header() {
         {auth.user && (
           <Link to={`/${auth.user.username}`} className="header__profile">
             <img
-              src={auth.user.profile.picture || defaultProfilePic}
+              src={auth.user.profile.picture}
               alt="profile-pic"
               className="tweet__author-pic"
             />

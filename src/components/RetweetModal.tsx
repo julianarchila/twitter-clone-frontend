@@ -6,9 +6,6 @@ import { retweet } from "../actions/tweetActions";
 import { useAppSelector } from "../utilities/typedReduxHooks";
 import "../styles/RetweetModal.css";
 
-const defaultProfilePic =
-  "https://pbs.twimg.com/profile_images/1121521882682077186/f1_RS9s9_400x400.png";
-
 interface Props {
   tweet: any;
   isOpen: boolean;
@@ -48,7 +45,7 @@ const RetweetModal: React.FC<Props> = (props) => {
       <form onSubmit={handleSubtmit} className="retweetModal">
         <div className="retweetModal-top">
           <img
-            src={current_user.profile.picture || defaultProfilePic}
+            src={current_user.profile.picture}
             alt="profile-pic"
             className="modal__user-pic"
           />

@@ -42,8 +42,8 @@ const ProfileHead: React.FC<Props> = (props) => {
           alt="profile"
         />
         <div className="profile__head__actions">
-          {auth.isAuthenticated && (
-            auth.user.username === user.username ? (
+          {auth.isAuthenticated &&
+            (auth.user.username === user.username ? (
               <button
                 onClick={() => setIsModalOpen(true)}
                 className="btn btn-primary mr-3"
@@ -54,15 +54,19 @@ const ProfileHead: React.FC<Props> = (props) => {
               <button onClick={handleFollow} className="btn btn-primary mr-3">
                 {user.following ? "Unfollow" : "Follow"}
               </button>
-            )
-          )}
+            ))}
         </div>
       </div>
       <div className="profile__head__info">
-        <div className="font-weight-bold">
-          {user.first_name} {user.last_name}
-          <p>@{user.username}</p>
+        <div className="profile__head-left">
+          <div className="font-weight-bold">
+            {user.first_name} {user.last_name}
+            <p>@{user.username}</p>
+          </div>
+
+          <div>{user.profile.bio}</div>
         </div>
+
         <div>
           <span>{user.following_count} following</span> <br />
           <span>{user.followers_count} followers</span>
